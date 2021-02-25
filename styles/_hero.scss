@@ -1,6 +1,4 @@
 .hero {
-  &__main {
-  }
   &__header {
     background-color: var(--main-yellow);
     display: flex;
@@ -68,6 +66,7 @@
     button {
       border-radius: 5px;
       flex-grow: 1;
+      flex-shrink: 0;
       padding: 0 0.3em;
       width: 70px;
       background-color: var(--main-yellow);
@@ -75,5 +74,50 @@
       font-weight: 700;
       font-size: 1em;
     }
+  }
+
+  &__collage {
+    background-color: var(--black-one);
+    z-index: -2;
+    position: relative;
+    height: 60vh;
+    img {
+      position: absolute;
+      z-index: 100;
+      transform: translate(-45%, 0%);
+      left: 50%;
+      bottom: 0;
+      width: 280 * 1.5px;
+      height: 443 * 1.5px;
+    }
+  }
+  &__circle-big {
+    position: absolute;
+    transform: translate(-50%, -70%);
+    left: 50%;
+    top: 50%;
+    background-color: var(--main-salmon);
+    overflow: hidden;
+    width: 485px;
+    height: 485px;
+    border-radius: 500px;
+    margin: 0 auto;
+    z-index: 0;
+    h1 {
+      position: absolute;
+      font-family: var(--main-font);
+      font-weight: 700;
+      color: var(--main-white);
+      font-size: 5em;
+    }
+    h1:nth-child(even) {
+      top: 80px;
+      left: -80px;
+      color: red;
+    }
+  }
+  &__text-wrapper {
+    position: relative;
+    width: 900%;
   }
 }

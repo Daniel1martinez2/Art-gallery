@@ -132,11 +132,65 @@ button {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   padding: 0 0.3em;
   width: 70px;
   background-color: var(--main-yellow);
   font-family: var(--second-font);
   font-weight: 700;
   font-size: 1em;
+}
+
+.hero__collage {
+  background-color: var(--black-one);
+  z-index: -2;
+  position: relative;
+  height: 60vh;
+}
+
+.hero__collage img {
+  position: absolute;
+  z-index: 100;
+  -webkit-transform: translate(-45%, 0%);
+          transform: translate(-45%, 0%);
+  left: 50%;
+  bottom: 0;
+  width: 420px;
+  height: 664.5px;
+}
+
+.hero__circle-big {
+  position: absolute;
+  -webkit-transform: translate(-50%, -70%);
+          transform: translate(-50%, -70%);
+  left: 50%;
+  top: 50%;
+  background-color: var(--main-salmon);
+  overflow: hidden;
+  width: 485px;
+  height: 485px;
+  border-radius: 500px;
+  margin: 0 auto;
+  z-index: 0;
+}
+
+.hero__circle-big h1 {
+  position: absolute;
+  font-family: var(--main-font);
+  font-weight: 700;
+  color: var(--main-white);
+  font-size: 5em;
+}
+
+.hero__circle-big h1:nth-child(even) {
+  top: 80px;
+  left: -80px;
+  color: red;
+}
+
+.hero__text-wrapper {
+  position: relative;
+  width: 900%;
 }
 /*# sourceMappingURL=main.css.map */
