@@ -13,6 +13,7 @@
     }
   }
   &__nav-bar {
+    max-width: 767px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -26,6 +27,7 @@
     }
   }
   &__info {
+    max-width: 767px;
     margin-top: 4em;
     padding: 1.5em;
     padding-bottom: 4em;
@@ -109,15 +111,62 @@
       font-weight: 700;
       color: var(--main-white);
       font-size: 5em;
+      animation: moving-odd 5s infinite;
     }
     h1:nth-child(even) {
       top: 80px;
       left: -80px;
-      color: red;
+      animation: moving-even 5s infinite;
     }
+  }
+  &__circle-small {
+    transform: translate(195%, 20%);
+    left: 50%;
+    bottom: 10%;
+    position: absolute;
+    z-index: 10;
+    width: 70px;
+    height: 70px;
+    border-radius: 500px;
+    background-color: var(--main-white);
   }
   &__text-wrapper {
     position: relative;
+    top: -45px;
     width: 900%;
+  }
+  &__curly {
+    z-index: 100;
+    transform: rotate(30deg) translate(-80%, 80%);
+    left: 50%;
+    bottom: 0;
+    position: absolute;
+
+    path {
+      stroke: var(--main-yellow);
+    }
+  }
+}
+
+@keyframes moving-even {
+  0% {
+    left: -200px;
+  }
+  50% {
+    left: 0;
+  }
+  100% {
+    left: -200px;
+  }
+}
+@keyframes moving-odd {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -200px;
+  }
+  100% {
+    left: 0;
   }
 }
