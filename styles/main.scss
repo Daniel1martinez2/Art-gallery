@@ -1,27 +1,8 @@
-@import "./fonts";
-@import "./vars";
-@import "./general";
 body {
   background-color: var(--main-white);
 }
-// .hero__curly {
-//   path {
-//     stroke: black;
-//   }
-// }
-// h1 > * {
-//   font-family: var(--second-font);
-// }
-// .main__bullets {
-//   padding-left: 100px;
-//   display: flex;
-//   .main__bullet {
-//     border-radius: 50%;
-//     margin: 2px;
-//     width: 10px;
-//     max-width: 10px;
-//     min-width: 10px;
-//     height: 10px;
-//     background-color: red;
-//   }
-// }
+
+@import "./fonts";
+@import "./vars";
+@import "./general";
+@import "./hero";
