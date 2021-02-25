@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400;700&display=swap");
+:root {
+  --main-yellow: #feb931;
+  --black-one: #1a1a1a;
+  --black-two: #282828;
+  --black-three: #3c3b3b;
+  --main-salmon: #ff705d;
+  --main-white: #f8f8f8;
+  --second-white: #f0ece9;
+  --font-gray: #858585;
+  --soft-gray: #d2cdc9;
+}
+
+* {
+  font-family: "Playfair Display", serif;
+}
+/*# sourceMappingURL=main.css.map */
