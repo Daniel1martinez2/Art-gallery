@@ -1,0 +1,15 @@
+// Este estilo es de la seccion main, no son los estilos principales !!!!_____________
+.main {
+  background-color: var(--second-white);
+  &__room {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+  }
+  &__lamp,
+  &__plant {
+    display: none;
+  }
+  &__sofa {
+  }
+}
