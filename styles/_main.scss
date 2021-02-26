@@ -1,15 +1,103 @@
 // Este estilo es de la seccion main, no son los estilos principales !!!!_____________
 .main {
+  padding: 5em 0;
   background-color: var(--second-white);
-  &__room {
-    display: flex;
-    justify-content: center;
-    background-color: red;
-  }
+  max-height: 900px;
+  min-height: 380px;
+  // background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   &__lamp,
   &__plant {
     display: none;
   }
+  &__room {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 3em;
+  }
+  &__product-interaction {
+    background-color: blue;
+    width: 90vmin;
+    max-width: 585px;
+    max-height: 585px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__slider {
+    background-color: yellow;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__slides {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: pink;
+  }
+  &__bullets {
+    display: flex;
+  }
+  &__bullet {
+    width: 15px;
+    height: 15px;
+    margin: 1em 0.8em;
+    background-color: var(--font-gray);
+    border-radius: 500px;
+  }
+  &__bullet--active {
+    background-color: var(--main-salmon);
+  }
+  &__frame {
+    width: 100%;
+    max-width: 300px;
+    height: 80%;
+    background-color: var(--black-three);
+    border-radius: 8px;
+    padding: 1em;
+    overflow: hidden;
+  }
+  &__paints {
+    width: 100%;
+    height: 197px;
+    background-color: royalblue;
+  }
+  &__arrow {
+    background-color: beige;
+    width: 20 * 2px;
+    height: 13 * 2px;
+  }
+  &__arrow-right {
+    transform: rotate(180deg);
+  }
   &__sofa {
+    width: 100%;
+  }
+  &__info {
+    width: 100%;
+    max-width: 585px;
+    padding: 0 60px;
+    h1 {
+      font-family: var(--main-font);
+      font-size: 24px;
+      font-weight: 400;
+      text-align: center;
+    }
+    p {
+      margin-top: 2em;
+      text-align: center;
+      font-family: var(--second-font);
+      color: var(--font-gray);
+      font-size: 14px;
+    }
   }
 }

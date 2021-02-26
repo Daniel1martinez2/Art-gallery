@@ -3,9 +3,7 @@
     background-color: var(--main-yellow);
     display: flex;
     padding: 1.5em;
-
     a {
-      margin-right: 3em;
       img {
         width: 45px;
         height: 100%;
@@ -13,9 +11,10 @@
     }
   }
   &__nav-bar {
-    max-width: 767px;
+    max-width: 700px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     a {
@@ -30,7 +29,7 @@
     }
   }
   &__info {
-    max-width: 767px;
+    max-width: 700px;
     margin-top: 2em;
     padding: 1.5em;
     padding-bottom: 4em;
@@ -181,15 +180,5 @@
   }
   100% {
     left: 0;
-  }
-}
-@media (min-width: 530px) {
-  .hero {
-    &__collage {
-      img {
-      }
-    }
-    &__circle-big {
-    }
   }
 }
