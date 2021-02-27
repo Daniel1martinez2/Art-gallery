@@ -97,10 +97,10 @@ body {
   font-weight: 700;
   font-size: 37px;
   margin-bottom: 0.6em;
-  color: var(--black-one) strong;
+  color: var(--black-one);
 }
 
-.hero__title :nth-child(2) {
+.hero__title strong:nth-child(2) {
   color: var(--main-salmon);
 }
 
@@ -530,5 +530,56 @@ body {
   .features__feature img {
     width: 20vmin;
   }
+}
+
+.promo {
+  width: 100%;
+  height: 150px;
+  background-color: var(--main-salmon);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.promo__img {
+  width: 50%;
+  height: 100%;
+  background-image: url("../lib/img/frame.png");
+  background-size: cover;
+  background-position: -65px;
+}
+
+.promo__info {
+  padding: 1.5em 1em;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  font-family: var(--second-font);
+}
+
+.promo__info h2 {
+  max-width: 200px;
+  color: var(--main-white);
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 1em;
+}
+
+.promo__info button {
+  background-color: var(--main-white);
+  padding: 0.5em;
+  max-width: 100px;
+  border-radius: 3px;
+  font-size: 12px;
+  color: var(--font-gray);
 }
 /*# sourceMappingURL=main.css.map */
