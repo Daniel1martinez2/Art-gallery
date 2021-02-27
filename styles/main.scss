@@ -2,10 +2,11 @@ body {
   background-color: var(--main-white);
 }
 
-@import "./fonts";
 @import "./vars";
 @import "./general";
 @import "./hero";
 @import "./main";
 @import "./features";
 @import "./promo";
+@import "./gallery";
+@import "./fonts";
