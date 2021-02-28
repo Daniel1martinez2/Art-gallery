@@ -159,6 +159,12 @@
       stroke: var(--main-yellow);
     }
   }
+  &__scroll {
+    margin-top: 2em;
+    circle {
+      animation: circle 2s infinite;
+    }
+  }
 }
 
 @keyframes moving-even {
@@ -181,5 +187,17 @@
   }
   100% {
     left: 0;
+  }
+}
+
+@keyframes circle {
+  0% {
+    cy: 20px;
+  }
+  50% {
+    cy: 50px;
+  }
+  100% {
+    cy: 20px;
   }
 }

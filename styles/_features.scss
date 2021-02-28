@@ -35,6 +35,7 @@
     &:nth-child(3) {
       img {
         max-height: 111 * 1.2px;
+        animation: coin 9s infinite ease-in-out;
       }
       background-color: var(--black-three);
     }
@@ -48,5 +49,16 @@
         width: 20vmin;
       }
     }
+  }
+}
+@keyframes coin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
