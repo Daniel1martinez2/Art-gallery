@@ -109,5 +109,28 @@
   &__curly {
     margin-top: 1em;
     transform: scale(0.5);
+    position: absolute;
+  }
+  &__curly-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: showIt 2s infinite;
+    width: 300px;
+    height: 100px;
+    overflow: hidden;
+  }
+}
+
+@keyframes showIt {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 300px;
+  }
+  100% {
+    width: 0;
   }
 }
