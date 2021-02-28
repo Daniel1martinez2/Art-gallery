@@ -3,6 +3,7 @@
   height: 150px;
   background-color: var(--main-salmon);
   display: flex;
+  overflow: hidden;
   &__img {
     width: 50%;
     height: 100%;

@@ -534,6 +534,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  overflow: hidden;
 }
 
 .promo__img {
@@ -697,6 +698,162 @@ body {
   .gallery__paint:nth-child(2) {
     margin: 0 5vmin;
   }
+}
+
+.table-content {
+  padding: 3em 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.table-content__main {
+  margin-bottom: 2em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.table-content__main h1 {
+  z-index: 10;
+  font-family: var(--main-font);
+  font-size: 25px;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.table-content__main h1::after {
+  z-index: -10;
+  position: absolute;
+  right: -5px;
+  top: 0;
+  content: "";
+  width: 105px;
+  height: 35px;
+  background-color: var(--main-yellow);
+}
+
+.table-content__paints {
+  min-width: 240px;
+  min-height: 308px;
+  max-width: 375.6px;
+  max-height: 483px;
+  width: 40vmin;
+  height: 50vmin;
+  background-color: rebeccapurple;
+  overflow: hidden;
+  position: relative;
+}
+
+.table-content__paint {
+  position: absolute;
+  background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvZWQyYjZkNmUzNDZhNjE0OGVmMTJmMGNjNzljOWIzOWQuanBnIiwicmVzaXplLDE1MDB8Zm9ybWF0LHdlYnAiXX0.MTyzxwf6Vyc4sOV966i8LupVeKze7WSJASy/VrdcqQOg.webp");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+}
+
+.table-content__paint:nth-child(2) {
+  width: 60%;
+  height: 60%;
+}
+
+.table-content__paint:nth-child(3) {
+  width: 30%;
+  height: 30%;
+}
+
+.table-content__paint:nth-child(2), .table-content__paint:nth-child(3) {
+  -webkit-box-shadow: -10px 2px 15px 7px rgba(0, 0, 0, 0.7);
+          box-shadow: -10px 2px 15px 7px rgba(0, 0, 0, 0.7);
+}
+
+.table-content__paint:hover {
+  background-image: none;
+  background-color: white;
+}
+
+.table-content__table {
+  background-color: pink;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.table-content__table::before {
+  content: "";
+  position: absolute;
+  z-index: -10;
+  width: 400%;
+  height: 5.4em;
+  left: -200px;
+  background-color: var(--second-white);
+}
+
+.table-content__header {
+  padding: 1em 0;
+}
+
+.table-content__header h1 {
+  font-family: var(--main-font);
+  font-size: 20px;
+  margin-bottom: 0.3em;
+  color: var(--black-three);
+}
+
+.table-content__users-rate {
+  max-width: 250px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.table-content__users-rate p {
+  font-family: var(--second-font);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 12px;
+  color: var(--font-gray);
+}
+
+.table-content__users-rate p strong {
+  margin-right: 0.5em;
+}
+
+.table-content__stars {
+  margin-right: 0.5em;
+}
+
+.table-content__stars img {
+  width: 20px;
+  height: 100%;
+}
+
+.table-content__users-rate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 :root {
