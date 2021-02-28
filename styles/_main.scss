@@ -16,13 +16,11 @@
   &__room {
     display: flex;
     justify-content: center;
-    // background-color: red;
     width: 100%;
     overflow: hidden;
     margin-bottom: 2em;
   }
   &__product-interaction {
-    // background-color: blue;
     width: 90vmin;
     max-width: 585px;
     max-height: 585px;
@@ -31,7 +29,6 @@
     justify-content: space-between;
   }
   &__slider {
-    // background-color: yellow;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -42,7 +39,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    // background-color: pink;
   }
   &__bullets {
     display: flex;
@@ -59,7 +55,7 @@
   }
   &__frame {
     width: 100%;
-    max-width: 300px;
+    max-width: 275px;
     height: 80%;
     background-color: var(--black-three);
     border-radius: 8px;
@@ -69,9 +65,38 @@
   &__paints {
     width: 100%;
     height: 197px;
-    // background-color: royalblue;
-    background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVtcGlja2EtYnVnYXR0aS5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.ZTJzusvBNBvXXX71IchQ-8rfUdfzCet6_1u_m6PW3wE.webp");
+    overflow: hidden;
+    background-color: royalblue;
     background-size: cover;
+    // display: flex;
+  }
+  &__carousel {
+    position: relative;
+    width: 5000px;
+    height: 100%;
+    background-color: aqua;
+    display: flex;
+  }
+  &__paint-cover {
+    width: 200px;
+    height: 100%;
+    background-size: cover;
+    &:nth-child(1) {
+      background-color: red;
+      background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNjAwOWFjZTQwZTQzMi5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.J4iI-8O0qpITsNIQe6uM6Nb7OAfh7dTt1wS39QWML_8.webp");
+    }
+    &:nth-child(2) {
+      background-color: blue;
+      background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvZ3VzdGF2X2tsaW10XzAxMC5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.VtbvXh-PIrxqftQ727_YE1K9PQVmqXbXrFO2w49fVbY.webp");
+    }
+    &:nth-child(3) {
+      background-color: green;
+      background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWZmZDU2MzA5Y2Y0Ni5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.4DHuvUOpXL5ATjBHkqxRS5kl1X4DUNn40wIZYLDm0e8.webp");
+    }
+    &:nth-child(4) {
+      background-color: orange;
+      background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvd2F0ZXJob3VzZV9oaXN0b3JpYV9hcnRlLmpwZyIsInJlc2l6ZSwxNTAwfGZvcm1hdCx3ZWJwIl19.WIJGplUjYTHfoGCRQS4rWyVe5XYo-El_DGNUFW10ShE.webp");
+    }
   }
   &__arrow {
     // background-color: beige;

@@ -1,9 +1,44 @@
 const circleBig = document.querySelector('.hero__text-wrapper');
 const circleArt = circleBig.querySelectorAll('h1');
-//-----------gallery paints
+//-----------gallery paints vars
 const paints = document.querySelectorAll('.gallery__paint');
-console.log(paints);
 
+//carousel vars
+const paintsMain = document.querySelector('.main__paints');
+const arrowLeft = document.querySelector('.main__arrow-left');
+const arrowRight = document.querySelector('.main__arrow-right');
+const carousel = document.querySelector('.main__carousel');
+console.log(carousel);
+let paintCounter = 0;
+//nodelist
+const paintsInside = document.querySelectorAll('.main__paint-cover');
+//array from this paints
+const paintsArray = Array.from(paintsInside);
+const paintsMainSize = {
+  height: paintsMain.clientHeight,
+  width: paintsMain.clientWidth
+};
+console.log(paintsMainSize);
+paintsInside.forEach((obj, i) => {
+  obj.style.width = `${paintsMainSize.width}px`;
+});
+// arrowLeft.addEventListener('click', () => {
+
+// });
+console.log(paintCounter);
+document.addEventListener('keydown', () => {
+
+  if (paintCounter < 3) {
+    paintCounter++;
+    carousel.style.transform = `translateX(${-paintsMainSize.width*paintCounter}px)`;
+  } else {
+    carousel.style.transform = `translateX(${0}px)`;
+    paintCounter = 0;
+  }
+  console.log(paintCounter);
+
+});
+//---init gallery paints
 const paintsBg = [{
     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVtcGlja2EtcmFmYWVsYS5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.qVdaodUlGWFDA2wzuH9qeyOIJQGhuWmP0RdEpCraRTI.webp'
   },
