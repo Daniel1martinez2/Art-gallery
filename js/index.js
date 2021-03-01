@@ -9,6 +9,7 @@ const arrowLeft = document.querySelector('.main__arrow-left');
 const arrowRight = document.querySelector('.main__arrow-right');
 const carousel = document.querySelector('.main__carousel');
 console.log(carousel);
+carousel.style.transition = 'all .5s ease-in-out';
 let paintCounter = 0;
 //nodelist
 const paintsInside = document.querySelectorAll('.main__paint-cover');
@@ -26,7 +27,7 @@ paintsInside.forEach((obj, i) => {
 
 // });
 console.log(paintCounter);
-document.addEventListener('keydown', () => {
+arrowRight.addEventListener('click', () => {
 
   if (paintCounter < 3) {
     paintCounter++;
