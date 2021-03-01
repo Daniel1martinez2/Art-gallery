@@ -8,7 +8,9 @@ const paintsMain = document.querySelector('.main__paints');
 const arrowLeft = document.querySelector('.main__arrow-left');
 const arrowRight = document.querySelector('.main__arrow-right');
 const carousel = document.querySelector('.main__carousel');
-console.log(carousel);
+const bullets = document.querySelectorAll('.main__bullet');
+const bulletsArray = Array.from(bullets);
+console.log(bulletsArray);
 carousel.style.transition = 'all .5s ease-in-out';
 let paintCounter = 0;
 //nodelist
@@ -19,16 +21,11 @@ const paintsMainSize = {
   height: paintsMain.clientHeight,
   width: paintsMain.clientWidth
 };
-console.log(paintsMainSize);
 paintsInside.forEach((obj, i) => {
   obj.style.width = `${paintsMainSize.width}px`;
 });
-// arrowLeft.addEventListener('click', () => {
 
-// });
-console.log(paintCounter);
 arrowRight.addEventListener('click', () => {
-
   if (paintCounter < 3) {
     paintCounter++;
     carousel.style.transform = `translateX(${-paintsMainSize.width*paintCounter}px)`;
@@ -36,9 +33,26 @@ arrowRight.addEventListener('click', () => {
     carousel.style.transform = `translateX(${0}px)`;
     paintCounter = 0;
   }
-  console.log(paintCounter);
-
+  setBulletActive(paintCounter);
 });
+arrowLeft.addEventListener('click', () => {
+  if (paintCounter > 0) {
+    paintCounter--;
+    carousel.style.transform = `translateX(${-paintsMainSize.width*paintCounter}px)`;
+  } else {
+    carousel.style.transform = `translateX(${-paintsMainSize.width*3}px)`;
+    paintCounter = 3;
+  }
+  setBulletActive(paintCounter);
+});
+
+let setBulletActive = (value) => {
+  bulletsArray.forEach((obj, i) => {
+    obj.classList.remove('main__bullet--active');
+  });
+  bulletsArray[value].classList.add('main__bullet--active');
+}
+
 //---init gallery paints
 const paintsBg = [{
     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVtcGlja2EtcmFmYWVsYS5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.qVdaodUlGWFDA2wzuH9qeyOIJQGhuWmP0RdEpCraRTI.webp'
