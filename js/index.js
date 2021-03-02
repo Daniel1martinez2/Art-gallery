@@ -54,28 +54,37 @@ let setBulletActive = (value) => {
 }
 
 //---init gallery paints
-const paintsBg = [{
-    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVtcGlja2EtcmFmYWVsYS5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.qVdaodUlGWFDA2wzuH9qeyOIJQGhuWmP0RdEpCraRTI.webp'
-  },
-  {
-    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNjAyYjlhOGFhYjlmNC5wbmciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.3nr08Ar5WzvnVivYKy_N7jLXMORBwsht50ylaG2TAAM.webp'
-  },
-  {
-    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWQ2YjkxNWI0ZWIyOS5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.rkVUvTDARDKTBWr3jXEs2pOEpdFyivb-N4R6qCeEfzo.webp'
-  },
-  {
-    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvam9obi10aGUtYmFwdGlzdC1jYXJhdmFnZ2lvLWdhbGxlcmlhLW5hemlvbmFsZS1kLWFydGUtYW50aWNhLmpwZyIsInJlc2l6ZSwxNTAwfGZvcm1hdCx3ZWJwIl1/9.mcduPKm8dr8HBaAHmaQ8oTYLP2mSo3KCIv0iRMpLyaA.webp'
-  },
-  {
-    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWM1OWE4MDIwYjA3My5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.GiDES6ibouLpqQLTmomCxLDmsD2hF_AU1pT2eSG_pEo.webp'
-  },
-  {
-    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGFkeV9nb2RpdmEuanBnIiwicmVzaXplLDE1MDB8Zm9ybWF0LHdlYnAiXX0.zbmnsf-IlLOlnhjWFjde9Ua5ACUzgSQcI5wLd_dmmHw.webp'
-  },
+// const paintsBg = [{
+//     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGVtcGlja2EtcmFmYWVsYS5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.qVdaodUlGWFDA2wzuH9qeyOIJQGhuWmP0RdEpCraRTI.webp'
+//   },
+//   {
+//     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNjAyYjlhOGFhYjlmNC5wbmciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.3nr08Ar5WzvnVivYKy_N7jLXMORBwsht50ylaG2TAAM.webp'
+//   },
+//   {
+//     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWQ2YjkxNWI0ZWIyOS5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.rkVUvTDARDKTBWr3jXEs2pOEpdFyivb-N4R6qCeEfzo.webp'
+//   },
+//   {
+//     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvam9obi10aGUtYmFwdGlzdC1jYXJhdmFnZ2lvLWdhbGxlcmlhLW5hemlvbmFsZS1kLWFydGUtYW50aWNhLmpwZyIsInJlc2l6ZSwxNTAwfGZvcm1hdCx3ZWJwIl1/9.mcduPKm8dr8HBaAHmaQ8oTYLP2mSo3KCIv0iRMpLyaA.webp'
+//   },
+//   {
+//     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWM1OWE4MDIwYjA3My5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.GiDES6ibouLpqQLTmomCxLDmsD2hF_AU1pT2eSG_pEo.webp'
+//   },
+//   {
+//     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGFkeV9nb2RpdmEuanBnIiwicmVzaXplLDE1MDB8Zm9ybWF0LHdlYnAiXX0.zbmnsf-IlLOlnhjWFjde9Ua5ACUzgSQcI5wLd_dmmHw.webp'
+//   },
 
-];
+// ];
+
 paints.forEach((p, i) => {
-  p.style.backgroundImage = `url(${paintsBg[i].url})`;
+  // p.style.backgroundImage = `url(${paintsBg[i].url})`;
+  new hoverEffect({
+    parent: p,
+    intensity: 0.4,
+    image1: `../lib/img/pain-img/a${i+1}.png`,
+    image2: `../lib/img/pain-img/a${i+1}.png`,
+    displacementImage: '../lib/img/heightMap.png'
+
+  });
 })
 
 circleArt.forEach((elem, i) => {
