@@ -47,6 +47,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
 }
 
 .hero__header {
@@ -347,9 +350,10 @@ body {
             flex-direction: row;
   }
   .hero__collage {
-    width: 100%;
-    min-height: 815px;
-    max-height: 855px;
+    width: 50%;
+    height: auto;
+    min-height: none;
+    max-height: none;
   }
   .hero__header {
     padding: 1.5em 5em;
@@ -370,7 +374,7 @@ body {
     font-size: 16px;
   }
   .hero__main {
-    width: 100%;
+    width: 50%;
   }
   .hero__scroll {
     height: 80px;

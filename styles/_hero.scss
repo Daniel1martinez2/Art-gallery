@@ -1,6 +1,7 @@
 .hero {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   &__header {
     background-color: var(--main-yellow);
     display: flex;
@@ -212,9 +213,10 @@
     flex-direction: row;
 
     &__collage {
-      width: 100%;
-      min-height: 815px;
-      max-height: 855px;
+      width: 50%;
+      height: auto;
+      min-height: none;
+      max-height: none;
     }
     &__header {
       padding: 1.5em 5em;
@@ -235,7 +237,7 @@
       }
     }
     &__main {
-      width: 100%;
+      width: 50%;
     }
     &__scroll {
       height: 80px;
