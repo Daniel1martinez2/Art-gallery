@@ -621,8 +621,6 @@ body {
 
 .features__feature:nth-child(3) img {
   max-height: 133.2px;
-  -webkit-animation: coin 9s infinite ease-in-out;
-          animation: coin 9s infinite ease-in-out;
 }
 
 @media (min-width: 760px) {
@@ -799,7 +797,7 @@ body {
           flex-grow: 1;
   height: 30vmin;
   width: 100%;
-  background-color: var(--black-one);
+  background-color: var(--black-two);
   background-size: cover;
   margin-bottom: 1.5em;
 }

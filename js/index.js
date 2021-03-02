@@ -79,13 +79,18 @@ paints.forEach((p, i) => {
   // p.style.backgroundImage = `url(${paintsBg[i].url})`;
   new hoverEffect({
     parent: p,
-    intensity: 0.4,
+    intensity: 0.5,
     image1: `./lib/img/pain-img/a${i+1}.png`,
     image2: `./lib/img/pain-img/a${i+1}.png`,
     displacementImage: './lib/img/heightMap.png'
 
   });
-})
+});
+
+// paints.forEach((p, i) => {
+//   p.style.backgroundImage = `url(${paintsBg[i].url})`;
+// })
+
 
 circleArt.forEach((elem, i) => {
   elem.style.top = `${80*i}px`;
