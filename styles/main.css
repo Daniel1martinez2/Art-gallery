@@ -428,7 +428,7 @@ body {
   width: 100%;
   height: 197px;
   overflow: hidden;
-  background-color: royalblue;
+  background-color: var(--black-three);
   background-size: cover;
 }
 
@@ -436,7 +436,6 @@ body {
   position: relative;
   width: 5000px;
   height: 100%;
-  background-color: aqua;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -449,22 +448,18 @@ body {
 }
 
 .main__paint-cover:nth-child(1) {
-  background-color: red;
   background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvZ3VzdGF2X2tsaW10XzAxMC5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.VtbvXh-PIrxqftQ727_YE1K9PQVmqXbXrFO2w49fVbY.webp");
 }
 
 .main__paint-cover:nth-child(2) {
-  background-color: blue;
-  background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNjAwOWFjZTQwZTQzMi5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.J4iI-8O0qpITsNIQe6uM6Nb7OAfh7dTt1wS39QWML_8.webp");
+  background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWNjZjFlOTNkOGE5Yy5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.ZW30CQ9Nc7bsN2zGwe-vh7K0AjP05MQ_Amb2XJ4TL1Y.webp");
 }
 
 .main__paint-cover:nth-child(3) {
-  background-color: green;
   background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWZmZDU2MzA5Y2Y0Ni5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.4DHuvUOpXL5ATjBHkqxRS5kl1X4DUNn40wIZYLDm0e8.webp");
 }
 
 .main__paint-cover:nth-child(4) {
-  background-color: orange;
   background-image: url("https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvd2F0ZXJob3VzZV9oaXN0b3JpYV9hcnRlLmpwZyIsInJlc2l6ZSwxNTAwfGZvcm1hdCx3ZWJwIl19.WIJGplUjYTHfoGCRQS4rWyVe5XYo-El_DGNUFW10ShE.webp");
 }
 
@@ -937,8 +932,8 @@ body {
 }
 
 .table-content__paint:hover {
-  background-image: none;
-  background-color: white;
+  -webkit-filter: contrast(200%);
+          filter: contrast(200%);
 }
 
 .table-content__table {
@@ -1026,7 +1021,7 @@ body {
 .table-content__price {
   color: #d2cdc9;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .table-content button {

@@ -67,8 +67,8 @@
     }
     &:hover {
       //solo funciona en web (obvio)
-      background-image: none;
-      background-color: white;
+      // background-image: none;
+      filter: contrast(200%);
     }
   }
   &__table {
@@ -133,7 +133,7 @@
   &__price {
     color: #d2cdc9;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 20px;
   }
   button {
     background-color: var(--main-salmon);

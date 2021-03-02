@@ -70,7 +70,7 @@ const paintsBg = [{
     url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvNWM1OWE4MDIwYjA3My5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.GiDES6ibouLpqQLTmomCxLDmsD2hF_AU1pT2eSG_pEo.webp'
   },
   {
-    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvY2FyYXZhZ2dpb18tX21lZHVzYV8tX2dvb2dsZV9hcnRfcHJvamVjdC5qcGciLCJyZXNpemUsMTUwMHxmb3JtYXQsd2VicCJdfQ.Kzb4HtM34KPKFU52rvc87tq_/mm01GfMHsYcfhpYHBt8.webp'
+    url: 'https://historia-arte.com/_/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbSI6WyJcL2FydHdvcmtcL2ltYWdlRmlsZVwvbGFkeV9nb2RpdmEuanBnIiwicmVzaXplLDE1MDB8Zm9ybWF0LHdlYnAiXX0.zbmnsf-IlLOlnhjWFjde9Ua5ACUzgSQcI5wLd_dmmHw.webp'
   },
 
 ];
