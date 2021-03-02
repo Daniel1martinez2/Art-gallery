@@ -259,6 +259,7 @@ body {
 
 .hero__scroll {
   margin-top: 2em;
+  height: 12vmin;
 }
 
 .hero__scroll circle {
@@ -347,8 +348,8 @@ body {
   }
   .hero__collage {
     width: 100%;
-    min-height: 812px;
-    max-height: 846px;
+    min-height: 815px;
+    max-height: 855px;
   }
   .hero__header {
     padding: 1.5em 5em;
@@ -370,6 +371,9 @@ body {
   }
   .hero__main {
     width: 100%;
+  }
+  .hero__scroll {
+    height: 80px;
   }
 }
 
@@ -404,6 +408,7 @@ body {
   width: 100%;
   overflow: hidden;
   margin-bottom: 2em;
+  padding: 0 2em;
 }
 
 .main__product-interaction {
@@ -655,6 +660,7 @@ body {
   }
   .main__info {
     min-width: 310px;
+    padding: 0;
   }
   .main__info h1 {
     font-size: 38px;

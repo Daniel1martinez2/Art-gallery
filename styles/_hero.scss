@@ -165,6 +165,7 @@
   }
   &__scroll {
     margin-top: 2em;
+    height: 12vmin;
     circle {
       animation: circle 2s infinite;
     }
@@ -212,8 +213,8 @@
 
     &__collage {
       width: 100%;
-      min-height: 812px;
-      max-height: 846px;
+      min-height: 815px;
+      max-height: 855px;
     }
     &__header {
       padding: 1.5em 5em;
@@ -235,6 +236,9 @@
     }
     &__main {
       width: 100%;
+    }
+    &__scroll {
+      height: 80px;
     }
   }
 }

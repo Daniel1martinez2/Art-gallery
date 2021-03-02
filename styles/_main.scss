@@ -18,6 +18,7 @@
     width: 100%;
     overflow: hidden;
     margin-bottom: 2em;
+    padding: 0 2em;
   }
   &__product-interaction {
     flex-grow: 3;
@@ -185,6 +186,7 @@
     }
     &__info {
       min-width: 310px;
+      padding: 0;
 
       h1 {
         font-size: 38px;
