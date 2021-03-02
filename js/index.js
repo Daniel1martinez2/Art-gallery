@@ -80,8 +80,8 @@ paints.forEach((p, i) => {
   new hoverEffect({
     parent: p,
     intensity: 0.4,
-    image1: `../lib/img/pain-img/a${i+1}.png`,
-    image2: `../lib/img/pain-img/a${i+1}.png`,
+    image1: `./lib/img/pain-img/a${i+1}.png`,
+    image2: `./lib/img/pain-img/a${i+1}.png`,
     displacementImage: '../lib/img/heightMap.png'
 
   });
