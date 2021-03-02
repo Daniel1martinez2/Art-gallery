@@ -799,7 +799,7 @@ body {
           flex-grow: 1;
   height: 30vmin;
   width: 100%;
-  background-color: red;
+  background-color: var(--black-one);
   background-size: cover;
   margin-bottom: 1.5em;
 }
