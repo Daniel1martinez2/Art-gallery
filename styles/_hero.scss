@@ -1,4 +1,6 @@
 .hero {
+  display: flex;
+  flex-direction: column;
   &__header {
     background-color: var(--main-yellow);
     display: flex;
@@ -33,6 +35,8 @@
     margin-top: 2em;
     padding: 1.5em;
     padding-bottom: 4em;
+    display: flex;
+    flex-direction: column;
   }
   &__title {
     font-family: var(--main-font);
@@ -49,7 +53,7 @@
     font-weight: 700;
     font-size: 0.8em;
     margin-bottom: 2em;
-    color: var(--black-three);
+    color: var(--font-gray);
   }
   &__form {
     height: 2.5em;
@@ -199,5 +203,38 @@
   }
   100% {
     cy: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    flex-direction: row;
+
+    &__collage {
+      width: 100%;
+      min-height: 812px;
+      max-height: 846px;
+    }
+    &__header {
+      padding: 1.5em 5em;
+    }
+    &__circle-big {
+      width: 42vw;
+      height: 42vw;
+    }
+    &__info {
+      margin-top: 0;
+      padding: 5em;
+      min-height: 736px;
+      h1 {
+        font-size: 60px;
+      }
+      p {
+        font-size: 16px;
+      }
+    }
+    &__main {
+      width: 100%;
+    }
   }
 }
