@@ -45,3 +45,11 @@
     }
   }
 }
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 5em;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}

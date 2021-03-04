@@ -87,10 +87,25 @@ body {
   font-family: var(--main-font);
   font-weight: 700;
   font-size: 0.8em;
+  position: relative;
 }
 
-.hero__nav-bar a:hover {
-  color: var(--main-white);
+.hero__nav-bar a:not(:first-child):hover::after {
+  width: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero__nav-bar a:not(:first-child)::after {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 0.4em;
+  width: 0%;
+  background-color: var(--main-white);
+  bottom: -0.7em;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .hero__info {
@@ -135,6 +150,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
 }
 
 .hero__form input {
@@ -268,6 +284,19 @@ body {
 .hero__scroll circle {
   -webkit-animation: circle 2s infinite;
           animation: circle 2s infinite;
+}
+
+.hero__svg {
+  width: 50%;
+  height: 900%;
+  position: absolute;
+  top: -160px;
+  right: -50px;
+  pointer-events: none;
+}
+
+.hero__svg--hide {
+  display: none;
 }
 
 @-webkit-keyframes moving-even {
@@ -836,6 +865,16 @@ body {
   color: var(--font-gray);
 }
 
+@media (min-width: 1024px) {
+  .promo__info {
+    padding: 1.5em 2em;
+  }
+  .promo__info h2 {
+    font-size: 20px;
+    max-width: 300px;
+  }
+}
+
 .gallery {
   position: relative;
   padding: 3em 1.5em 6em 1.5em;
@@ -1148,6 +1187,30 @@ body {
   border-radius: 6px;
 }
 
+@media (min-width: 1024px) {
+  .table-content {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .table-content__table {
+    margin-top: 10em;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+  }
+  .table-content__table::before {
+    content: "";
+    position: absolute;
+    z-index: -10;
+    width: 200%;
+    height: 5.4em;
+    left: -20px;
+    background-color: var(--second-white);
+  }
+}
+
 .footer {
   padding: 3em 1.5em;
   background-color: var(--black-one);
@@ -1227,6 +1290,19 @@ body {
 .footer__path h1 {
   color: var(--main-white);
   font-size: 18px;
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding: 5em;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 :root {

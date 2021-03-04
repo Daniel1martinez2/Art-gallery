@@ -142,3 +142,26 @@
     border-radius: 6px;
   }
 }
+
+@media (min-width: 1024px) {
+  .table-content {
+    flex-direction: row;
+
+    &__table {
+      // background-color: pink;
+      margin-top: 10em;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -10;
+        width: 200%;
+        height: 5.4em;
+        left: -20px;
+        background-color: var(--second-white);
+      }
+    }
+  }
+}

@@ -36,3 +36,15 @@
     }
   }
 }
+
+@media (min-width: 1024px) {
+  .promo {
+    &__info {
+      padding: 1.5em 2em;
+      h2 {
+        font-size: 20px;
+        max-width: 300px;
+      }
+    }
+  }
+}

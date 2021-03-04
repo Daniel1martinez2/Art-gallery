@@ -95,3 +95,25 @@ paints.forEach((p, i) => {
 circleArt.forEach((elem, i) => {
   elem.style.top = `${80*i}px`;
 });
+
+
+//lottie animation
+const play = document.querySelector(".hero__form-button");
+
+const svgContainer = document.querySelector(".hero__svg");
+const animItem = bodymovin.loadAnimation({
+  wrapper: svgContainer,
+  animType: "svg",
+  loop: false,
+  autoplay: false,
+  path: "./lib/animations/anima.json",
+});
+play.addEventListener("click", () => {
+  svgContainer.classList.remove("hero__svg--hide");
+  animItem.goToAndPlay(0, true);
+
+});
+
+animItem.addEventListener("complete", () => {
+  svgContainer.classList.add("hero__svg--hide");
+});
