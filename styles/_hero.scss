@@ -185,11 +185,11 @@
     }
   }
   &__svg {
-    width: 50%;
+    width: 70%;
     height: 900%;
     position: absolute;
     top: -160px;
-    right: -50px;
+    right: -60px;
     pointer-events: none;
     &--hide {
       display: none;
@@ -235,6 +235,18 @@
 @media (min-width: 1024px) {
   .hero {
     flex-direction: row;
+
+    &__svg {
+      width: 70%;
+      height: 900%;
+      position: absolute;
+      top: -160px;
+      right: -100px;
+      pointer-events: none;
+      &--hide {
+        display: none;
+      }
+    }
 
     &__collage {
       width: 50%;
