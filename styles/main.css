@@ -678,13 +678,21 @@ body {
     -ms-flex-line-pack: center;
         align-content: center;
   }
+  .main__product-interaction {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .main__sofa {
+    margin-top: 0.5em;
+  }
   .main__slides {
     width: 80%;
   }
   .main__room {
     max-width: 680px;
     width: 400vmin;
-    min-width: 495px;
+    min-width: 530px;
     margin-right: 4em;
   }
   .main__lamp, .main__plant {
@@ -694,13 +702,7 @@ body {
     -webkit-box-flex: 0;
         -ms-flex-positive: 0;
             flex-grow: 0;
-  }
-  .main__lamp {
-    width: 40%;
-  }
-  .main__plant {
-    width: 20%;
-    margin-left: 1em;
+    width: 90px;
   }
   .main__info {
     min-width: 310px;
