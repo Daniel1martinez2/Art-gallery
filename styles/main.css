@@ -963,9 +963,8 @@ body {
 .gallery__paint {
   max-width: 266px;
   max-height: 200px;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   height: 30vmin;
   width: 100%;
   background-color: var(--black-two);

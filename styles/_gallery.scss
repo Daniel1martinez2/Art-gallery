@@ -44,7 +44,7 @@
   &__paint {
     max-width: 266px;
     max-height: 200px;
-    flex-grow: 1;
+    flex-shrink: 0;
     height: 30vmin;
     width: 100%;
     background-color: var(--black-two);
