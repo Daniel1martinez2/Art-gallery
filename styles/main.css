@@ -1360,6 +1360,10 @@ body {
   margin-left: 1em;
 }
 
+.shop-header__features--active {
+  fill: var(--main-yellow);
+}
+
 .shop-header__login-btn {
   font-family: var(--second-font);
   color: var(--font-gray);
@@ -1386,5 +1390,78 @@ body {
   border-radius: 25px;
   height: 20px;
   background-color: var(--main-salmon);
+}
+
+.shop-settings {
+  font-family: var(--second-font);
+  color: var(--font-gray);
+  text-transform: capitalize;
+  background-color: var(--black-two);
+  padding: 20px;
+}
+
+.shop-settings label {
+  font-size: 14px;
+}
+
+.shop-settings__sort {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.shop-settings__sort-item {
+  padding: 3px 8px;
+  border: 1.8px solid var(--font-gray);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.shop-settings__sort-item:hover {
+  color: white;
+}
+
+.shop-settings__sort-item--active {
+  background-color: var(--main-yellow);
+  border: 1.8px solid var(--main-yellow);
+  color: var(--black-one);
+}
+
+.shop-settings__sort-item--active:hover {
+  color: black;
+}
+
+.shop-settings__filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.shop-settings__filter > * {
+  margin-bottom: 10px;
+}
+
+.shop-settings__filter select {
+  font-family: var(--second-font);
+  font-size: 15px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  padding: 0.2em 0.3em;
+  border: 1.8px solid var(--font-gray);
+  border-radius: 3px;
+  color: var(--font-gray);
+  background-image: url(../lib/svg/arrow-down.svg);
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
 }
 /*# sourceMappingURL=main.css.map */
