@@ -1,0 +1,44 @@
+.shop-header {
+  background-color: var(--black-one);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logo {
+    width: 45px;
+  }
+  &__features {
+    display: flex;
+    justify-content: center;
+    & > * {
+      margin-left: 1em;
+    }
+  }
+  &__login-btn {
+    font-family: var(--second-font);
+    color: var(--font-gray);
+    text-transform: capitalize;
+  }
+  &__bag {
+    position: relative;
+    img {
+      width: 25px;
+    }
+    &::before {
+      content: "9";
+      font-family: var(--second-font);
+      color: var(--main-white);
+      text-align: center;
+      position: absolute;
+      top: -5px;
+      left: -12px;
+      padding: 0 5px;
+      border-radius: 25px;
+
+      height: 20px;
+
+      background-color: var(--main-salmon);
+    }
+  }
+}
