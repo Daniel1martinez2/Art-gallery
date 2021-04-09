@@ -1533,7 +1533,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70%;
+  width: 100px;
 }
 
 .product__stars > * {
