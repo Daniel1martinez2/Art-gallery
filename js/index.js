@@ -1,16 +1,3 @@
-//firebase
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCfLGPC7xC9sV6-0vgEKHENoNLyvk28S74",
-//   authDomain: "artgallery-896d7.firebaseapp.com",
-//   projectId: "artgallery-896d7",
-//   storageBucket: "artgallery-896d7.appspot.com",
-//   messagingSenderId: "894275339407",
-//   appId: "1:894275339407:web:49452bb914723932c75cfa"
-// };
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-
-// const db = firebase.firestore();
 
 
 //agregar--------------
@@ -40,7 +27,6 @@ const arrowRight = document.querySelector('.main__arrow-right');
 const carousel = document.querySelector('.main__carousel');
 const bullets = document.querySelectorAll('.main__bullet');
 const bulletsArray = Array.from(bullets);
-console.log(bulletsArray);
 carousel.style.transition = 'all .5s ease-in-out';
 let paintCounter = 0;
 //nodelist

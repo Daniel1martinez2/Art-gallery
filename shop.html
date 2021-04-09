@@ -38,7 +38,7 @@
     </div>
   </header>
   <!-- two -->
-  <article class="shop-settings">
+  <article class="shop-settings ">
     <header class="shop-settings__sort">
       <div class="shop-settings__sort-item shop-settings__sort-item--active">popular</div>
       <div class="shop-settings__sort-item">cheaper</div>
@@ -47,23 +47,23 @@
     <footer class="shop-settings__filter">
       <!-- country -->
       <label>Country</label>
-      <select class="drop">
-        <option value="">All</option>
-        <option value="">Spain</option>
-        <option value="">France</option>
-        <option value="">Italy</option>
+      <select class="drop" name="country">
+        <option value="all">All</option>
+        <option value="spain">Spain</option>
+        <option value="france">France</option>
+        <option value="italy">Italy</option>
       </select class="drop">
       <!-- technique -->
       <label>technique</label>
-      <select>
+      <select class="drop" name="country">
         <option value="">All</option>
         <option value="">Spain</option>
         <option value="">France</option>
         <option value="">Italy</option>
-      </select>
+      </select class="drop" name="country">
       <!-- vanguard -->
       <label>vanguard</label>
-      <select class="drop">
+      <select class="drop" name="country">
         <option value="">All</option>
         <option value="">Spain</option>
         <option value="">France</option>
@@ -71,8 +71,33 @@
       </select>
     </footer>
   </article>
+  <!-- three -->
+  <main class="shop-products">
 
-  <main class="shop-products"></main>
+    <!-- product -->
+    <div class="product">
+      <img src="./lib/img/pain-img/a2.png" alt="">
+      <aside class="product__info">
+        <div class="product__name-rate">
+          <h1>Frau auf der Treppe</h1>
+          <div class="product__stars">
+            <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
+            <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
+            <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
+            <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
+            <img src="./lib/svg/star-half.svg" alt="" class="product__star--half">
+          </div>
+        </div>
+        <div class="product__payment">
+          <h3 class="product__price">$ 180.00</h3>
+          <button class="product__pay-btn">
+            <img src="./lib/svg/bag.svg" alt="">
+            add to cart
+          </button>
+        </div>
+      </aside>
+    </div>
+  </main>
 
 </body>
 

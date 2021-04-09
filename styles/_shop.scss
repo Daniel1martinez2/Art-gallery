@@ -91,10 +91,24 @@
       padding: 0.2em 0.3em;
       border: 1.8px solid var(--font-gray);
       border-radius: 3px;
-      color: var(--font-gray);
+      color: var(--main-yellow);
       background-image: url(../lib/svg/arrow-down.svg);
       background-repeat: no-repeat;
       background-position: right 10px top 50%;
+      option {
+        color: var(--black-two);
+      }
     }
   }
 }
+
+.shop-products{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  & >*{
+    margin-bottom: 20px;
+  }
+}
+
