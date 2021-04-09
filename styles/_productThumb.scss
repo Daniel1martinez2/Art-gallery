@@ -27,9 +27,12 @@
   &__stars{
     display: flex;
     width: 80px;
-    & >*{
-      
+    img{
+      margin-right:3px;
+      width: 15px;
+      height: 100%;
     }
+ 
   }
   &__payment{
     h3{
