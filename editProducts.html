@@ -17,91 +17,95 @@
     <button class="edit-product__delete">delete product</button>
   </header>
   <!-- two -->
-  <form class="edit-form">
-    <!-- pair1 -->
-    <div class="edit-form__input-pair">
-      <label class="edit-form__label">
-        Name
-        <input type="text" class="edit-form__input" name="name">
-      </label>
-      <label class="edit-form__label">
-        Autor
-        <input type="text" class="edit-form__input" name="autor">
-      </label>
-    </div>
-    <!-- pair2 -->
-    <div class="edit-form__input-pair">
-      <label class="edit-form__label">
-        year
-        <input type="number" class="edit-form__input" name="year">
-      </label>
-      <label class="edit-form__label">
-        price
-        <input type="number" class="edit-form__input" name="price">
-      </label>
-    </div>
-    <!-- pair3 -->
-    <div class="edit-form__input-pair">
-      <label class="edit-form__label">
-        country
-        <input type="text" class="edit-form__input" name="country">
-      </label>
-      <label class="edit-form__label">
-        rating
-        <input type="text" class="edit-form__input" name="rating">
-      </label>
-    </div>
-    <!-- pair -->
-    <div class="edit-form__input-pair">
-      <label class="edit-form__label">
-        technique
-        <input type="text" class="edit-form__input" name="technique">
-      </label>
-      <label class="edit-form__label">
-        vanguard
-        <input type="text" class="edit-form__input" name="vanguard">
-      </label>
-    </div>
-    <!-- description -->
-    <label class="edit-form__label">
-      Description
-    </label>
-    <textarea type="text" class="edit-form__input edit-form__description" name="vanguard"></textarea>
-    <label class="edit-form__label"> images</label>
-    <div class="edit-form__set-img">
-
-      <div class="edit-form__file-btn">
-        <div class="edit-form__add-img edit-form__set-img-btn">
-          <input class="edit-form__add-img-file" type="file" accept=".jpg, .png">
-          <img src="./lib/svg/plus.svg" alt="">
-        </div>
-        <button class="edit-form__clear edit-form__set-img-btn">clear</button>
+  <div class="form-wrapper">
+    <form class="edit-form">
+      <!-- pair1 -->
+      <div class="edit-form__input-pair">
+        <label class="edit-form__label">
+          Name
+          <input type="text" class="edit-form__input" name="name">
+        </label>
+        <label class="edit-form__label">
+          Autor
+          <input type="text" class="edit-form__input" name="autor">
+        </label>
       </div>
-     
-      <div class="edit-form__preview">
-         <!-- preview image xample -->
-        <div class="edit-form__img-prev">
-          <button>
-            <img src="./lib/svg/close-salmon.svg" alt="">
-          </button>
-        </div>
-         <!-- preview image xample -->
-        <div class="edit-form__img-prev">
-          <button>
-            <img src="./lib/svg/close-salmon.svg" alt="">
-          </button>
-        </div>
-         <!-- preview image xample -->
-        <div class="edit-form__img-prev">
-          <button>
-            <img src="./lib/svg/close-salmon.svg" alt="">
-          </button>
-        </div>
-
+      <!-- pair2 -->
+      <div class="edit-form__input-pair">
+        <label class="edit-form__label">
+          year
+          <input type="number" class="edit-form__input" name="year">
+        </label>
+        <label class="edit-form__label">
+          price
+          <input type="number" class="edit-form__input" name="price">
+        </label>
       </div>
-    </div>
-    <button class="edit-form__submit">Save changes</button>
-  </form>
+      <!-- pair3 -->
+      <div class="edit-form__input-pair">
+        <label class="edit-form__label">
+          country
+          <input type="text" class="edit-form__input" name="country">
+        </label>
+        <label class="edit-form__label">
+          rating
+          <input type="text" class="edit-form__input" name="rating">
+        </label>
+      </div>
+      <!-- pair -->
+      <div class="edit-form__input-pair">
+        <label class="edit-form__label">
+          technique
+          <input type="text" class="edit-form__input" name="technique">
+        </label>
+        <label class="edit-form__label">
+          vanguard
+          <input type="text" class="edit-form__input" name="vanguard">
+        </label>
+      </div>
+      <!-- description -->
+      <label class="edit-form__label">
+        Description
+      </label>
+      <textarea type="text" class="edit-form__input edit-form__description" name="vanguard"></textarea>
+      <label class="edit-form__label"> images</label>
+      <div class="edit-form__set-img">
+  
+        <div class="edit-form__file-btn">
+          <div class="edit-form__add-img edit-form__set-img-btn">
+            <input class="edit-form__add-img-file" type="file" accept=".jpg, .png">
+            <img src="./lib/svg/plus.svg" alt="">
+          </div>
+          <button class="edit-form__clear edit-form__set-img-btn">clear</button>
+        </div>
+       
+        <div class="edit-form__preview">
+           <!-- preview image xample -->
+          <div class="edit-form__img-prev">
+            <button>
+              <img src="./lib/svg/close-salmon.svg" alt="">
+            </button>
+          </div>
+           <!-- preview image xample -->
+          <div class="edit-form__img-prev">
+            <button>
+              <img src="./lib/svg/close-salmon.svg" alt="">
+            </button>
+          </div>
+           <!-- preview image xample -->
+          <div class="edit-form__img-prev">
+            <button>
+              <img src="./lib/svg/close-salmon.svg" alt="">
+            </button>
+          </div>
+  
+        </div>
+      </div>
+      <div class="edit-form__button-wrapper-center">
+        <button class="edit-form__submit">Save changes</button>
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>

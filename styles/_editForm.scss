@@ -28,9 +28,13 @@
     text-align: center;
   }
 }
+.form-wrapper {
+  background-color: var(--black-two);
+  display: flex;
+}
 .edit-form {
   font-family: var(--second-font);
-  background-color: var(--black-two);
+  width: 100%;
   color: var(--font-gray);
   padding: 20px;
   min-height: 100vh;
@@ -104,6 +108,7 @@
       width: 25px;
     }
     input {
+      cursor: pointer;
       opacity: 0;
       position: absolute;
       top: 0;
@@ -112,22 +117,15 @@
       height: 100%;
     }
   }
-  &__submit {
-    background-color: var(--main-yellow);
-    color: var(--black-one);
-    width: 100%;
-    padding: 5px;
-    border-radius: 3px;
-    font-weight: 600;
-    margin-top: 10px;
-  }
+
   &__file-btn {
     display: flex;
     margin-bottom: 20px;
   }
-  &__preview{
+  &__preview {
     display: flex;
     justify-content: space-between;
+    max-width: 400px;
   }
   &__img-prev {
     position: relative;
@@ -137,6 +135,7 @@
     background-size: cover;
     border-radius: 3px;
     overflow: hidden;
+    opacity: 0.5;
     button {
       z-index: 10000;
       position: absolute;
@@ -151,6 +150,40 @@
       top: 0;
       left: 0;
       background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  &__submit {
+    background-color: var(--main-yellow);
+    color: var(--black-one);
+    max-width: 500px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+  &__button-wrapper-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-wrapper {
+    justify-content: center;
+  }
+  .edit-form {
+    max-width: 800px;
+    &__input-pair {
+      flex-direction: row;
+      
+    }
+    &__label {
+      width: 100%;
+      &:first-child{
+        margin-right: 20px;
+      }
     }
   }
 }

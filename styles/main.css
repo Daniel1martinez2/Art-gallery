@@ -1627,9 +1627,16 @@ body {
   text-align: center;
 }
 
+.form-wrapper {
+  background-color: var(--black-two);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .edit-form {
   font-family: var(--second-font);
-  background-color: var(--black-two);
+  width: 100%;
   color: var(--font-gray);
   padding: 20px;
   min-height: 100vh;
@@ -1729,22 +1736,13 @@ body {
 }
 
 .edit-form__add-img input {
+  cursor: pointer;
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-.edit-form__submit {
-  background-color: var(--main-yellow);
-  color: var(--black-one);
-  width: 100%;
-  padding: 5px;
-  border-radius: 3px;
-  font-weight: 600;
-  margin-top: 10px;
 }
 
 .edit-form__file-btn {
@@ -1761,6 +1759,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  max-width: 400px;
 }
 
 .edit-form__img-prev {
@@ -1771,6 +1770,7 @@ body {
   background-size: cover;
   border-radius: 3px;
   overflow: hidden;
+  opacity: 0.5;
 }
 
 .edit-form__img-prev button {
@@ -1788,5 +1788,49 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.edit-form__submit {
+  background-color: var(--main-yellow);
+  color: var(--black-one);
+  max-width: 500px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  font-weight: 400;
+}
+
+.edit-form__button-wrapper-center {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 30px;
+}
+
+@media (min-width: 1024px) {
+  .form-wrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .edit-form {
+    max-width: 800px;
+  }
+  .edit-form__input-pair {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .edit-form__label {
+    width: 100%;
+  }
+  .edit-form__label:first-child {
+    margin-right: 20px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
