@@ -1,0 +1,155 @@
+.edit-product {
+  width: 100%;
+  position: fixed;
+  background-color: var(--black-one);
+  padding: 20px;
+  font-family: var(--second-font);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  &__log-out {
+    text-transform: capitalize;
+    color: var(--font-gray);
+    font-size: 12pt;
+    font-weight: 400;
+    margin-right: 10px;
+    &:hover {
+      color: white;
+    }
+  }
+  &__delete {
+    background-color: var(--main-salmon);
+    color: var(--main-white);
+    text-transform: capitalize;
+    font-size: 10pt;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+  }
+}
+.edit-form {
+  font-family: var(--second-font);
+  background-color: var(--black-two);
+  color: var(--font-gray);
+  padding: 20px;
+  min-height: 100vh;
+  margin-top: 60px;
+  &__label {
+    font-size: 10pt;
+    text-transform: capitalize;
+  }
+  &__input {
+    font-family: var(--second-font);
+    font-weight: 400;
+    font-size: 10pt;
+    padding-left: 10px;
+    border: none;
+    background-color: var(--black-three);
+    border-radius: 3px;
+    height: 28px;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    outline: none;
+    color: var(--second-white);
+    &[type="number"] {
+      //firefox
+      -moz-appearance: textfield;
+      //others
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+  }
+  &__input-pair {
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    display: block;
+  }
+  &__description {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    padding-top: 10px;
+    line-height: 20px;
+  }
+
+  &__set-img {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    &-btn {
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 3px;
+    }
+  }
+  &__clear {
+    background-color: var(--main-salmon);
+    color: var(--main-white);
+  }
+  &__add-img {
+    position: relative;
+    background-color: var(--black-three);
+    margin-right: 10px;
+
+    img {
+      width: 25px;
+    }
+    input {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__submit {
+    background-color: var(--main-yellow);
+    color: var(--black-one);
+    width: 100%;
+    padding: 5px;
+    border-radius: 3px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  &__file-btn {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  &__preview{
+    display: flex;
+    justify-content: space-between;
+  }
+  &__img-prev {
+    position: relative;
+    width: 90px;
+    height: 140px;
+    background-image: url("../lib/img/pain-img/a5.png");
+    background-size: cover;
+    border-radius: 3px;
+    overflow: hidden;
+    button {
+      z-index: 10000;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}

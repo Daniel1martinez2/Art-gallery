@@ -1491,6 +1491,9 @@ body {
 @media (max-width: 710px) {
   .shop-products {
     max-width: 400px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -1582,5 +1585,207 @@ body {
 .product__payment button img {
   width: 18px;
   margin-right: 10px;
+}
+
+.edit-product {
+  width: 100%;
+  position: fixed;
+  background-color: var(--black-one);
+  padding: 20px;
+  font-family: var(--second-font);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.edit-product__log-out {
+  text-transform: capitalize;
+  color: var(--font-gray);
+  font-size: 12pt;
+  font-weight: 400;
+  margin-right: 10px;
+}
+
+.edit-product__log-out:hover {
+  color: white;
+}
+
+.edit-product__delete {
+  background-color: var(--main-salmon);
+  color: var(--main-white);
+  text-transform: capitalize;
+  font-size: 10pt;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.edit-form {
+  font-family: var(--second-font);
+  background-color: var(--black-two);
+  color: var(--font-gray);
+  padding: 20px;
+  min-height: 100vh;
+  margin-top: 60px;
+}
+
+.edit-form__label {
+  font-size: 10pt;
+  text-transform: capitalize;
+}
+
+.edit-form__input {
+  font-family: var(--second-font);
+  font-weight: 400;
+  font-size: 10pt;
+  padding-left: 10px;
+  border: none;
+  background-color: var(--black-three);
+  border-radius: 3px;
+  height: 28px;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  outline: none;
+  color: var(--second-white);
+}
+
+.edit-form__input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.edit-form__input[type="number"]::-webkit-outer-spin-button, .edit-form__input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.edit-form__input-pair {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.edit-form__label {
+  display: block;
+}
+
+.edit-form__description {
+  width: 100%;
+  height: 100px;
+  resize: none;
+  padding-top: 10px;
+  line-height: 20px;
+}
+
+.edit-form__set-img {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 0;
+}
+
+.edit-form__set-img-btn {
+  width: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+}
+
+.edit-form__clear {
+  background-color: var(--main-salmon);
+  color: var(--main-white);
+}
+
+.edit-form__add-img {
+  position: relative;
+  background-color: var(--black-three);
+  margin-right: 10px;
+}
+
+.edit-form__add-img img {
+  width: 25px;
+}
+
+.edit-form__add-img input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.edit-form__submit {
+  background-color: var(--main-yellow);
+  color: var(--black-one);
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.edit-form__file-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.edit-form__preview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.edit-form__img-prev {
+  position: relative;
+  width: 90px;
+  height: 140px;
+  background-image: url("../lib/img/pain-img/a5.png");
+  background-size: cover;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.edit-form__img-prev button {
+  z-index: 10000;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.edit-form__img-prev::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 /*# sourceMappingURL=main.css.map */
