@@ -1,4 +1,4 @@
-firebase
+//firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCfLGPC7xC9sV6-0vgEKHENoNLyvk28S74",
   authDomain: "artgallery-896d7.firebaseapp.com",
@@ -11,3 +11,4 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
+const storage = firebase.storage(); 

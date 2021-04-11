@@ -26,8 +26,8 @@
           <input type="text" class="edit-form__input" name="name">
         </label>
         <label class="edit-form__label">
-          Autor
-          <input type="text" class="edit-form__input" name="autor">
+          Author
+          <input type="text" class="edit-form__input" name="author">
         </label>
       </div>
       <!-- pair2 -->
@@ -49,7 +49,7 @@
         </label>
         <label class="edit-form__label">
           rating
-          <input type="text" class="edit-form__input" name="rating">
+          <input type="number" class="edit-form__input" name="rating">
         </label>
       </div>
       <!-- pair -->
@@ -67,38 +67,20 @@
       <label class="edit-form__label">
         Description
       </label>
-      <textarea type="text" class="edit-form__input edit-form__description" name="vanguard"></textarea>
+      <textarea type="text" class="edit-form__input edit-form__description" name="description"></textarea>
       <label class="edit-form__label"> images</label>
       <div class="edit-form__set-img">
-  
+
         <div class="edit-form__file-btn">
           <div class="edit-form__add-img edit-form__set-img-btn">
-            <input class="edit-form__add-img-file" type="file" accept=".jpg, .png">
+            <input class="edit-form__add-img-file" type="file" accept=".jpg, .png" name="file">
             <img src="./lib/svg/plus.svg" alt="">
           </div>
           <button class="edit-form__clear edit-form__set-img-btn">clear</button>
         </div>
-       
+
         <div class="edit-form__preview">
-           <!-- preview image xample -->
-          <div class="edit-form__img-prev">
-            <button>
-              <img src="./lib/svg/close-salmon.svg" alt="">
-            </button>
-          </div>
-           <!-- preview image xample -->
-          <div class="edit-form__img-prev">
-            <button>
-              <img src="./lib/svg/close-salmon.svg" alt="">
-            </button>
-          </div>
-           <!-- preview image xample -->
-          <div class="edit-form__img-prev">
-            <button>
-              <img src="./lib/svg/close-salmon.svg" alt="">
-            </button>
-          </div>
-  
+        
         </div>
       </div>
       <div class="edit-form__button-wrapper-center">
@@ -106,6 +88,12 @@
       </div>
     </form>
   </div>
+  <!-- scripts -->
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+  <script src="./js/general.js"></script>
+  <script src="./js/editProductForm.js"></script>
 </body>
 
 </html>

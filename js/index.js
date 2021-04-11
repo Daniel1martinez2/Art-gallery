@@ -1,20 +1,3 @@
-
-
-//agregar--------------
-// db.collection("products").add({
-//     name: 'siso'
-//   })
-//   .then((docRef) => {
-//     console.log("Document written with ID: ", docRef.id);
-//   })
-//   .catch((error) => {
-//     console.error("Error adding document: ", error);
-//   });
-
-
-///
-
-
 const circleBig = document.querySelector('.hero__text-wrapper');
 const circleArt = circleBig.querySelectorAll('h1');
 //-----------gallery paints vars
