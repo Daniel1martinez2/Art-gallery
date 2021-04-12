@@ -1756,21 +1756,18 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  max-width: 400px;
+  width: 100%;
 }
 
 .edit-form__img-prev {
   position: relative;
   width: 90px;
   height: 140px;
+  margin-right: 20px;
   background-image: url("../lib/img/pain-img/a5.png");
   background-size: cover;
   border-radius: 3px;
   overflow: hidden;
-  opacity: 0.5;
 }
 
 .edit-form__img-prev button {
