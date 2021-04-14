@@ -77,6 +77,13 @@
       }
     }
   }
+  &__option{
+    display: flex;
+    flex-direction: column;
+    label{
+      margin-bottom: 10px;
+    }
+  }
   &__filter {
     display: flex;
     flex-direction: column;
@@ -124,6 +131,25 @@
 
 @media (min-width: 1024px) {
   .shop-products{
-    max-width: 1100px;
+    max-width: 1500px;
+  }
+  .shop-settings{
+    &__sort{
+      max-width: 340px;
+    }
+    &__option{
+      width: 35%;
+      &:nth-child(2){
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+    }
+    &__filter {
+      max-width: 1200px;
+      flex-direction: row;
+      select{
+        width: 100%;
+      }
+    }
   }
 }

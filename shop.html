@@ -46,36 +46,45 @@
     </header>
     <footer class="shop-settings__filter">
       <!-- country -->
-      <label>Country</label>
-      <select class="drop" name="country">
-        <option value="all">All</option>
-        <option value="spain">Spain</option>
-        <option value="france">France</option>
-        <option value="italy">Italy</option>
-      </select class="drop">
+      <div class="shop-settings__option">
+        <label>Country</label>
+        <select class="drop" name="country">
+          <option value="all">All</option>
+          <option value="spain">Spain</option>
+          <option value="france">France</option>
+          <option value="italy">Italy</option>
+        </select class="drop">
+      </div>
       <!-- technique -->
-      <label>technique</label>
-      <select class="drop" name="country">
-        <option value="">All</option>
-        <option value="">Spain</option>
-        <option value="">France</option>
-        <option value="">Italy</option>
-      </select class="drop" name="country">
+      <div class="shop-settings__option">
+        <label>technique</label>
+        <select class="drop" name="country">
+          <option value="">All</option>
+          <option value="">Spain</option>
+          <option value="">France</option>
+          <option value="">Italy</option>
+        </select class="drop" name="country">
+      </div>
       <!-- vanguard -->
-      <label>vanguard</label>
-      <select class="drop" name="country">
-        <option value="">All</option>
-        <option value="">Spain</option>
-        <option value="">France</option>
-        <option value="">Italy</option>
-      </select>
+      <div class="shop-settings__option">
+        <label>vanguard</label>
+        <select class="drop" name="country">
+          <option value="">All</option>
+          <option value="">Spain</option>
+          <option value="">France</option>
+          <option value="">Italy</option>
+        </select>
+      </div>
     </footer>
   </article>
   <!-- three -->
   <main class="shop-products">
+
     <!-- product -->
     <div class="product">
-      <img src="./lib/img/pain-img/a2.png" alt="">
+      <a href="#">
+        <img class="product__img"  src="./lib/img/pain-img/a2.png" alt="">
+      </a>
       <aside class="product__info">
         <div class="product__name-rate">
           <h1>Frau auf der Treppe</h1>
@@ -96,9 +105,12 @@
         </div>
       </aside>
     </div>
+ 
     <!-- product -->
     <div class="product">
-      <img src="./lib/img/pain-img/a2.png" alt="">
+      <a href="#">
+        <img class="product__img"  src="./lib/img/pain-img/a2.png" alt="">
+      </a>
       <aside class="product__info">
         <div class="product__name-rate">
           <h1>Frau auf der Treppe</h1>
@@ -119,12 +131,15 @@
         </div>
       </aside>
     </div>
+ 
     <!-- product -->
     <div class="product">
-      <img src="./lib/img/pain-img/a2.png" alt="">
+      <a href="#">
+        <img class="product__img"  src="./lib/img/pain-img/a2.png" alt="">
+      </a>
       <aside class="product__info">
         <div class="product__name-rate">
-          <h1>Frau auf der Treppe</h1>
+          <h1>lorem</h1>
           <div class="product__stars">
             <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
             <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
@@ -142,6 +157,8 @@
         </div>
       </aside>
     </div>
+ 
+  
   </main>
 
 </body>
