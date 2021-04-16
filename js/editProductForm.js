@@ -14,16 +14,18 @@ form.file.addEventListener('change', () => {
     imgThumb.style.backgroundImage = `url(${e.target.result})`;
   }
   // convert to base64 string
-  reader.readAsDataURL(form.file.files[0]);
+  reader.readAsDataURL(file);
   //add current selected file to the array
-  filesArray.push(form.file.files[0]);
+  const currentLength = filesArray.push(file);
   const imgThumb = document.createElement('div');
   imgThumb.classList.add('edit-form__img-prev');
   const deleteImageBtn = document.createElement('button'); 
   deleteImageBtn.innerHTML = ` <img src="./lib/svg/close-salmon.svg" alt="">`;
   imgThumb.appendChild(deleteImageBtn); 
-  deleteImageBtn.addEventListener('click', ()=>{
+  deleteImageBtn.addEventListener('click', (event)=>{
+    event.preventDefault(); 
     prevContainer.removeChild(imgThumb); 
+    filesArray.splice(filesArray.indexOf(file),1);
   }); 
   prevContainer.appendChild(imgThumb);
 }); 
@@ -35,7 +37,10 @@ const clearImages = () => {
     filesArray.pop();
   }
 }
-clearBtn.addEventListener('click', clearImages);
+clearBtn.addEventListener('click', (event)=>{
+  event.preventDefault();
+  clearImages(); 
+});
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
