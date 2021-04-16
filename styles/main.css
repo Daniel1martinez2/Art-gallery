@@ -1514,6 +1514,9 @@ body {
 @media (min-width: 1024px) {
   .shop-products {
     max-width: 1500px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   .shop-settings__sort {
     max-width: 340px;
@@ -1805,7 +1808,7 @@ body {
   width: 90px;
   height: 140px;
   margin-right: 20px;
-  background-image: url("../lib/img/pain-img/a5.png");
+  background-image: url("../lib/img/noImage.png");
   background-size: cover;
   border-radius: 3px;
   overflow: hidden;
@@ -1863,12 +1866,16 @@ body {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .edit-form__input-item {
+    width: 49%;
   }
   .edit-form__label {
     width: 100%;
-  }
-  .edit-form__label:first-child {
-    margin-right: 20px;
   }
 }
 /*# sourceMappingURL=main.css.map */

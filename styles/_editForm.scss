@@ -131,7 +131,7 @@
     width: 90px;
     height: 140px;
     margin-right: 20px;
-    background-image: url("../lib/img/pain-img/a5.png");
+    background-image: url("../lib/img/noImage.png");
     background-size: cover;
     border-radius: 3px;
     overflow: hidden;
@@ -176,13 +176,20 @@
     max-width: 800px;
     &__input-pair {
       flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
       
     }
+    &__input-item{
+      width: 49%;
+   
+    }
+
     &__label {
       width: 100%;
-      &:first-child{
-        margin-right: 20px;
-      }
+     
     }
   }
 }
+
+

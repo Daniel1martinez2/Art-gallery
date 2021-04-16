@@ -2,6 +2,7 @@
 const form = document.querySelector('.edit-form');
 const prevThumbs = document.querySelectorAll('.edit-form__img-prev');
 const prevContainer = document.querySelector('.edit-form__preview');
+const clearBtn = document.querySelector('.edit-form__clear');
 const filesArray = [];
 
 
@@ -16,15 +17,26 @@ form.file.addEventListener('change', () => {
   reader.readAsDataURL(form.file.files[0]);
   //add current selected file to the array
   filesArray.push(form.file.files[0]);
-  console.log(filesArray);
   const imgThumb = document.createElement('div');
   imgThumb.classList.add('edit-form__img-prev');
-  imgThumb.innerHTML =
-    `<button>
-      <img src="./lib/svg/close-salmon.svg" alt="">
-    </button>`;
+  const deleteImageBtn = document.createElement('button'); 
+  deleteImageBtn.innerHTML = ` <img src="./lib/svg/close-salmon.svg" alt="">`;
+  imgThumb.appendChild(deleteImageBtn); 
+  deleteImageBtn.addEventListener('click', ()=>{
+    prevContainer.removeChild(imgThumb); 
+  }); 
   prevContainer.appendChild(imgThumb);
-})
+}); 
+
+const clearImages = () => {
+  prevContainer.innerHTML = ''; 
+  //reset files array
+  while (filesArray.length) {
+    filesArray.pop();
+  }
+}
+clearBtn.addEventListener('click', clearImages);
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const product = {
@@ -51,13 +63,13 @@ form.addEventListener('submit', (event) => {
       filesArray.forEach( (file)=> {
         let storageRef = firebase.storage().ref();
         let fileRef = storageRef.child(`products/${docRef.id}/${file.name}`);
-        // espera a subir la imagen
+        // Wait for upload image
         uploadPromises.push(fileRef.put(file));
       });
       //
       Promise.all(uploadPromises).then( (snapshots)=> {
         snapshots.forEach( (snapshot)=> {
-          // espera a obtener la url de descarga de la imagen
+          // Wait for image URL
           downloadUrlPromises.push(snapshot.ref.getDownloadURL());
         });
         Promise.all(downloadUrlPromises).then( (downloadURLs)=> {
@@ -72,6 +84,7 @@ form.addEventListener('submit', (event) => {
           db.collection('products').doc(docRef.id).update({
             images: images
           }).then( ()=>{
+            //the last thing that happens
               form.name.value = ''; 
               form.author.value = ''; 
               form.year.value = ''; 
@@ -81,12 +94,8 @@ form.addEventListener('submit', (event) => {
               form.technique.value = ''; 
               form.vanguard.value = ''; 
               form.description.value = ''; 
-              prevContainer.innerHTML = ''; 
-              //reset files array
-              while (filesArray.length) {
-                filesArray.pop();
-              }
-              console.log(filesArray);
+              form.size.value = ''; 
+              clearImages(); 
           })
           .catch(genericCatch);
         })

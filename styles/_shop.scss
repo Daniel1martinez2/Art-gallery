@@ -132,6 +132,7 @@
 @media (min-width: 1024px) {
   .shop-products{
     max-width: 1500px;
+    justify-content: space-between;
   }
   .shop-settings{
     &__sort{
