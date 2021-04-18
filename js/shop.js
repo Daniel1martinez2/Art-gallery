@@ -3,25 +3,33 @@ const settingsToggle = document.querySelector('.shop-header__settings-btn');
 const shopSettings = document.querySelector('.shop-settings ');
 const productContainer = document.querySelector('.shop-products');
 const sortOptions = document.querySelector('.shop-settings__sort');
-const sortItems = document.querySelectorAll('.shop-settings__sort-item'); 
-// const allSelectInputs = document.querySelectorAll('.drop'); 
-// console.log(allSelectInputs[0].value);
-const settingsFilter = document.querySelector('.shop-settings__filter'); 
-console.log(settingsFilter);
- const sortOptionsArray = [
-  {
-    checked: false, 
+const sortItems = document.querySelectorAll('.shop-settings__sort-item');
+console.log(shopSettings);
+const sortOptionsArray = [{
+    checked: false,
     name: 'Popular'
   },
   {
-    checked: false, 
+    checked: false,
     name: 'Cheaper'
   },
   {
-    checked: false, 
+    checked: false,
     name: 'Alphabetic'
   },
-]; 
+];
+
+//initialization
+//all products
+db.collection('products')
+  .get()
+  .then((querySnapshot) => {
+    productContainer.innerHTML = '';
+    querySnapshot.forEach(doc => {
+      const current = doc.data();
+      createProduct(current);
+    });
+  }); 
 
 const createProduct = (doc) => {
   const product = document.createElement('div');
@@ -53,62 +61,75 @@ const createProduct = (doc) => {
 
 }
 
+
+const formChange = () => {
+  let productsCollection = db.collection('products');
+  if (shopSettings.country.value) {
+    productsCollection = productsCollection.where('country', '==', shopSettings.country.value);
+  }
+  if (shopSettings.technique.value) {
+    productsCollection = productsCollection.where('technique', '==', shopSettings.technique.value);
+  }
+  if (shopSettings.vanguard.value) {
+    productsCollection = productsCollection.where('vanguard', '==', shopSettings.vanguard.value);
+  }
+
+
+  const currentSelected = sortOptionsArray.filter((element) => element.checked);
+  if (currentSelected[0]?.name) {
+    console.log(currentSelected[0]?.name);
+    switch (currentSelected[0]?.name) {
+      case 'Popular':
+        productsCollection = productsCollection.orderBy('rating', 'desc');
+        break;
+      case 'Cheaper':
+        productsCollection = productsCollection.orderBy('price', 'asc');
+        break;
+        case 'Alphabetic':
+        productsCollection = productsCollection.orderBy('name', 'asc');
+
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  productsCollection
+    .get()
+    .then((querySnapshot) => {
+      productContainer.innerHTML = '';
+      querySnapshot.forEach(doc => {
+        createProduct(doc.data());
+      });
+    }) ;
+}
+
+
 //events
 settingsToggle.addEventListener('click', () => {
   shopSettings.classList.toggle('hidden');
   settingsToggle.querySelector('path').classList.toggle('shop-header__features--active');
 });
 //select inputs stuff
-settingsFilter.addEventListener('change', ()=>{
-  let productsCollection = db.collection('products');
-
-  if(settingsFilter.country.value) {
-    productsCollection = productsCollection.where('country', '==', settingsFilter.country.value);
-  }
-  if(settingsFilter.technique.value) {
-    productsCollection = productsCollection.where('technique', '==', settingsFilter.technique.value);
-  }
-  if(settingsFilter.vanguard.value) {
-    productsCollection = productsCollection.where('vanguard', '==', settingsFilter.vanguard.value);
-  }
-
-  productsCollection
-  .get()
-  .then((querySnapshot) => {
-    productContainer.innerHTML = '';
-    querySnapshot.forEach(doc => {
-      createProduct(doc.data());
-    });
-  })
-
-}); 
+shopSettings.addEventListener('change', formChange);
 
 //sort stuff
 sortItems.forEach((item, i) => {
-  item.addEventListener('click',()=>{
-    let state = sortOptionsArray[i].checked; 
-    sortOptionsArray.forEach((element,index) => {
-      element.checked = false; 
-      sortItems[index].classList.remove('shop-settings__sort-item--active'); 
+  item.addEventListener('click', (event) => {
+    event.preventDefault(); 
+    let state = sortOptionsArray[i].checked;
+    sortOptionsArray.forEach((element, index) => {
+      element.checked = false;
+      sortItems[index].classList.remove('shop-settings__sort-item--active');
     });
-    if(!state){
-      sortOptionsArray[i].checked = !sortOptionsArray[i].checked; 
-      item.classList.toggle('shop-settings__sort-item--active'); 
+    if (!state) {
+      sortOptionsArray[i].checked = !sortOptionsArray[i].checked;
+      item.classList.toggle('shop-settings__sort-item--active');
     }
-    console.log(sortOptionsArray);
-  
-  });  
+    formChange(); 
+
+  });
 });
 
 
-
-//dataBase Stuff
-db.collection('products')
-  .get()
-  .then((querySnapshot) => {
-    productContainer.innerHTML = '';
-    querySnapshot.forEach(doc => {
-      const current = doc.data();
-      createProduct(current);
-    });
-  })
