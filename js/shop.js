@@ -1,4 +1,12 @@
 //elements
+const loginBtn = document.querySelector('.shop-header__login-btn'); 
+const modalBg = document.querySelector('.modal-bg'); 
+const closeModalBtn = document.querySelector('.modal__close-btn'); 
+const loginModalBtn = document.querySelector('.modal__login'); 
+const registerModalBtn = document.querySelector('.modal__register'); 
+const modalBtnContainer = document.querySelector('.modal__buttons'); 
+const confirmPassword = document.querySelector('.confirm-password'); 
+
 const settingsToggle = document.querySelector('.shop-header__settings-btn');
 const shopSettings = document.querySelector('.shop-settings ');
 const productContainer = document.querySelector('.shop-products');
@@ -113,6 +121,25 @@ settingsToggle.addEventListener('click', () => {
 });
 //select inputs stuff
 shopSettings.addEventListener('change', formChange);
+
+loginBtn.addEventListener('click',()=> modalBg.classList.add('modal-active')); 
+closeModalBtn.addEventListener('click',()=> modalBg.classList.remove('modal-active')); 
+loginModalBtn.addEventListener('click', (event)=>{
+  event.preventDefault(); 
+  if(loginModalBtn.classList.contains('modal__btn--active')) console.log('login info');
+  confirmPassword.classList.add('hidden');
+  modalBtnContainer.style.flexDirection = 'column'; 
+  loginModalBtn.classList.add('modal__btn--active'); 
+  registerModalBtn.classList.remove('modal__btn--active'); 
+}); 
+registerModalBtn.addEventListener('click', (event)=>{
+  if(registerModalBtn.classList.contains('modal__btn--active')) console.log('register info');
+  event.preventDefault(); 
+  confirmPassword.classList.remove('hidden');
+  modalBtnContainer.style.flexDirection = 'column-reverse'; 
+  loginModalBtn.classList.remove('modal__btn--active'); 
+  registerModalBtn.classList.add('modal__btn--active'); 
+}); 
 
 //sort stuff
 sortItems.forEach((item, i) => {
