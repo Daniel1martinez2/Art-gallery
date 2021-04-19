@@ -35,11 +35,11 @@ db.collection('products')
     productContainer.innerHTML = '';
     querySnapshot.forEach(doc => {
       const current = doc.data();
-      createProduct(current);
+      createProduct(current, doc.id);
     });
   }); 
 
-const createProduct = (doc) => {
+const createProduct = (doc, id) => {
   const product = document.createElement('div');
   product.classList.add('product');
   product.innerHTML = `
@@ -65,6 +65,8 @@ const createProduct = (doc) => {
       </button>
     </div>
   </aside>`;
+  const thumbBtn = product.querySelector('.product__pay-btn'); 
+  thumbBtn.addEventListener('click',()=>console.log(id)); 
   productContainer.appendChild(product);
 
 }
@@ -108,7 +110,7 @@ const formChange = () => {
     .then((querySnapshot) => {
       productContainer.innerHTML = '';
       querySnapshot.forEach(doc => {
-        createProduct(doc.data());
+        createProduct(doc.data(), doc.id);
       });
     }) ;
 }
@@ -140,6 +142,7 @@ registerModalBtn.addEventListener('click', (event)=>{
   loginModalBtn.classList.remove('modal__btn--active'); 
   registerModalBtn.classList.add('modal__btn--active'); 
 }); 
+
 
 //sort stuff
 sortItems.forEach((item, i) => {
