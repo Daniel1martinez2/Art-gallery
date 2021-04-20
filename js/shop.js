@@ -42,6 +42,7 @@ db.collection('products')
 const createProduct = (doc, id) => {
   const product = document.createElement('div');
   product.classList.add('product');
+  const starsArray = starsMath(doc.rating); 
   product.innerHTML = `
   <a href="#">
     <img class="product__img"  src="${doc.images[0].url}" alt="">
@@ -50,11 +51,11 @@ const createProduct = (doc, id) => {
     <div class="product__name-rate">
       <h1>${doc.name.length > 11 ? doc.name.slice(0,11) + '...': doc.name}</h1>
       <div class="product__stars">
-        <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
-        <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
-        <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
-        <img src="./lib/svg/star-full.svg" alt="" class="product__star--full">
-        <img src="./lib/svg/star-half.svg" alt="" class="product__star--half">
+        <img src="./lib/svg/star-${starsArray[0]}.svg" alt="" class="product__star--full">
+        <img src="./lib/svg/star-${starsArray[1]}.svg" alt="" class="product__star--full">
+        <img src="./lib/svg/star-${starsArray[2]}.svg" alt="" class="product__star--full">
+        <img src="./lib/svg/star-${starsArray[3]}.svg" alt="" class="product__star--full">
+        <img src="./lib/svg/star-${starsArray[4]}.svg" alt="" class="product__star--full">
       </div>
     </div>
     <div class="product__payment">
@@ -66,7 +67,7 @@ const createProduct = (doc, id) => {
     </div>
   </aside>`;
   const thumbBtn = product.querySelector('.product__pay-btn'); 
-  thumbBtn.addEventListener('click',()=>console.log(id)); 
+  thumbBtn.addEventListener('click',()=>console.log(starsArray)); 
   productContainer.appendChild(product);
 
 }

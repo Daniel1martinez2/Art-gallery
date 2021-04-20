@@ -25,3 +25,19 @@ body {
 .show {
   display: block;
 }
+
+.cart-length{
+  content: "9";
+  font-family: var(--second-font);
+  color: var(--main-white);
+  text-align: center;
+  position: absolute;
+  top: -5px;
+  left: -12px;
+  padding: 0 5px;
+  border-radius: 25px;
+
+  height: 20px;
+
+  background-color: var(--main-salmon);
+}

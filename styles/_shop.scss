@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   &__logo {
     width: 45px;
   }
@@ -28,24 +27,8 @@
     img {
       width: 25px;
     }
-    &::before {
-      content: "9";
-      font-family: var(--second-font);
-      color: var(--main-white);
-      text-align: center;
-      position: absolute;
-      top: -5px;
-      left: -12px;
-      padding: 0 5px;
-      border-radius: 25px;
-
-      height: 20px;
-
-      background-color: var(--main-salmon);
-    }
   }
 }
-
 .shop-settings {
   font-family: var(--second-font);
   color: var(--font-gray);
