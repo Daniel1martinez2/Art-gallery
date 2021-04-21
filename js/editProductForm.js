@@ -16,20 +16,19 @@ form.file.addEventListener('change', () => {
   // convert to base64 string
   reader.readAsDataURL(file);
   //add current selected file to the array
-  const currentLength = filesArray.push(file);
+  filesArray.push(file);
   const imgThumb = document.createElement('div');
   imgThumb.classList.add('edit-form__img-prev');
   const deleteImageBtn = document.createElement('button'); 
+  deleteImageBtn.setAttribute('type','button');
   deleteImageBtn.innerHTML = ` <img src="./lib/svg/close-salmon.svg" alt="">`;
   imgThumb.appendChild(deleteImageBtn); 
   deleteImageBtn.addEventListener('click', (event)=>{
-    event.preventDefault(); 
     prevContainer.removeChild(imgThumb); 
     filesArray.splice(filesArray.indexOf(file),1);
   }); 
   prevContainer.appendChild(imgThumb);
 }); 
-
 const clearImages = () => {
   prevContainer.innerHTML = ''; 
   //reset files array

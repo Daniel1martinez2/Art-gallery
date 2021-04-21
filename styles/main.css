@@ -1954,6 +1954,10 @@ body {
 .modal__input {
   border: none;
   background-color: var(--second-white);
+  color: var(--black-three);
+  font-family: var(--second-font);
+  padding-left: 10px;
+  font-size: 15px;
   border-radius: 3px;
   -webkit-box-flex: 2;
       -ms-flex-positive: 2;
