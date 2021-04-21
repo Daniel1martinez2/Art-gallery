@@ -13,6 +13,13 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const storage = firebase.storage(); 
 
+firebase.auth().onAuthStateChanged((user)=>{
+  if(user){
+    let uid = user.uid; 
+  }else{
+
+  }
+}) 
 //star stuff
 const starsMath = (rating) => {
   const stars = []; 

@@ -11,7 +11,7 @@ authModal.innerHTML = ` <div class="modal ">
   </div>
   <!-- email -->
   <div class="modal__data">
-    <label for="name">Email</label>
+    <label for="email">Email</label>
     <input class="modal__input" id="email" type="email" name="email">
   </div>
   <!-- password -->
@@ -38,10 +38,20 @@ const registerModalBtn = authModal.querySelector('.modal__register');
 const modalBtnContainer = authModal.querySelector('.modal__buttons'); 
 const registerFields = document.querySelectorAll('.register-elem');  
 const form = authModal.querySelector('.modal__form'); 
+
+const userInfo = () => {
+  return {
+     name : form.name.value,
+     email : form.email.value,
+     password : form.password.value,
+     confirmPassword : form.confirm.value,
+  }
+}
 const hiddenRegister = () => {
   registerFields.forEach((elem)=>elem.classList.add('hidden')); 
 }
 hiddenRegister(); 
+
 closeModalBtn.addEventListener('click',()=> authModal.classList.remove('modal-active')); 
 loginModalBtn.addEventListener('click', (event)=>{
   event.preventDefault(); 
@@ -54,10 +64,34 @@ loginModalBtn.addEventListener('click', (event)=>{
   registerModalBtn.classList.remove('modal__btn--active'); 
 }); 
 registerModalBtn.addEventListener('click', (event)=>{
-  if(registerModalBtn.classList.contains('modal__btn--active')) console.log('register info');
+  if(registerModalBtn.classList.contains('modal__btn--active')) {
+    const info = userInfo(); 
+    firebase.auth().createUserWithEmailAndPassword(info.email,info.password)
+    .then((userCredential) => {
+      let user = userCredential.user;
+      console.log(user);
+      db.collection('users').doc(user.uid).set({
+        name: info.name,
+        email: info.email,
+      })
+      .then(()=>{
+        form.name.value = ''; 
+        form.email.value = ''; 
+        form.password.value = ''; 
+        form.confirm.value = ''; 
+      })
+      .catch((error)=>{
+        console.log(error)
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  };
   event.preventDefault(); 
   registerFields.forEach((elem)=>elem.classList.remove('hidden')); 
   modalBtnContainer.style.flexDirection = 'column-reverse'; 
   loginModalBtn.classList.remove('modal__btn--active'); 
   registerModalBtn.classList.add('modal__btn--active'); 
 }); 
+
