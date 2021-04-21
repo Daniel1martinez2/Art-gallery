@@ -12,14 +12,13 @@ authModal.innerHTML = ` <div class="modal ">
   <!-- email -->
   <div class="modal__data">
     <label for="name">Email</label>
-    <input class="modal__input" id="name" type="email" name="email">
+    <input class="modal__input" id="email" type="email" name="email">
   </div>
   <!-- password -->
   <div class="modal__data">
     <label for="password">Password</label>
     <input class="modal__input" id="password" type="password" name="password">
   </div>
-  
   <!-- confirm -->
   <div class="modal__data  register-elem">
     <label for="confirm">Confirm Password</label>

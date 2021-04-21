@@ -4,8 +4,6 @@ const prevThumbs = document.querySelectorAll('.edit-form__img-prev');
 const prevContainer = document.querySelector('.edit-form__preview');
 const clearBtn = document.querySelector('.edit-form__clear');
 const filesArray = [];
-
-
 form.file.addEventListener('change', () => {
   let file = form.file.files[0];
   if (!file) return
@@ -40,7 +38,6 @@ clearBtn.addEventListener('click', (event)=>{
   event.preventDefault();
   clearImages(); 
 });
-
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const product = {
@@ -106,7 +103,6 @@ form.addEventListener('submit', (event) => {
         .catch(genericCatch);
       })
       .catch(genericCatch);
-      //
       console.log("Document added", docRef.id);
     })
     .catch((error) => {

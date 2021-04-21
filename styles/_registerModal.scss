@@ -12,6 +12,7 @@
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(6px); 
   transition: visibility 0s, opacity 0.5s;
+  z-index: 10000;
 }
 .modal-active{
   visibility: visible;

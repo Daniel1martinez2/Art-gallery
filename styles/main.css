@@ -1901,6 +1901,7 @@ body {
           backdrop-filter: blur(6px);
   -webkit-transition: visibility 0s, opacity 0.5s;
   transition: visibility 0s, opacity 0.5s;
+  z-index: 10000;
 }
 
 .modal-active {
