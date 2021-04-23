@@ -9,9 +9,10 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-let isUser = false; 
+let loggedUser = null; 
 const db = firebase.firestore();
 const storage = firebase.storage(); 
+let dataUser = null; 
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){
     let uid = user.uid; 
@@ -20,20 +21,16 @@ firebase.auth().onAuthStateChanged((user)=>{
     .doc(uid)
     .get()
     .then((doc)=>{
-      isUser = true;
-      const loggedUser = doc.data(); 
-      const loginText = document.querySelector('.shop-header__login-btn');
-      const logOut = document.querySelector('.shop-header__log-out-btn'); 
-      const userNameText = document.querySelector('.shop-header__user-name');  
-      if(loginText) loginText.classList.add('hidden'); 
-      if(logOut)logOut.classList.remove('hidden'); 
-      if(userNameText && doc.data()) {
-        userNameText?.classList.remove('hidden'); 
-        userNameText.innerText = `Hi ${loggedUser?.name.length > 6 ? loggedUser?.name.slice(0,6) + '...': loggedUser?.name}`; 
-      }
+      dataUser = doc.data(); 
+      loggedUser = dataUser;
+      loggedUser.uid = uid; 
+      userAuthChanged(true,dataUser); 
+      console.log(loggedUser);
     })
+    .catch((error)=>console.log(error))
   }else{
-
+    loggedUser = null; 
+    userAuthChanged(false,dataUser); 
   }
 }) 
 //star stuff

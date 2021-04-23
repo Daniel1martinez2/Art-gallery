@@ -61,16 +61,17 @@ closeModalBtn.addEventListener('click',()=> authModal.classList.remove('modal-ac
 loginModalBtn.addEventListener('click', (event)=>{
   event.preventDefault(); 
   hiddenRegister(); 
-  if(loginModalBtn.classList.contains('modal__btn--active')) console.log({
-    email: form.email.value
-  });
+  if(loginModalBtn.classList.contains('modal__btn--active')) {
+    const info = userInfo();
+    firebase.auth().signInWithEmailAndPassword(info.email,info.password)
+  };
   modalBtnContainer.style.flexDirection = 'column'; 
   loginModalBtn.classList.add('modal__btn--active');
   registerModalBtn.classList.remove('modal__btn--active'); 
 }); 
 registerModalBtn.addEventListener('click', (event)=>{
   if(registerModalBtn.classList.contains('modal__btn--active')) {
-    const info = userInfo(); 
+    const info = userInfo();
     firebase.auth().createUserWithEmailAndPassword(info.email,info.password)
     .then((userCredential) => {
       let user = userCredential.user;
@@ -78,14 +79,8 @@ registerModalBtn.addEventListener('click', (event)=>{
       db.collection('users').doc(user.uid).set({
         name: info.name,
         email: info.email,
+        admin: false
       })
-      .then(()=>{
-        clearForm(); 
-        authModal.classList.remove('modal-active'); 
-      })
-      .catch((error)=>{
-        console.log(error)
-      });
     })
     .catch((error) => {
       console.log(error);

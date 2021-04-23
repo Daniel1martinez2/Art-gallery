@@ -17,9 +17,9 @@
       <img class="shop-header__logo" src="./lib/svg/logo-yellow.svg" alt="">
     </a>
     <div class="shop-header__features">
-      <h1 class="shop-header__user-name hidden">###</h1>
-      <button class="shop-header__login-btn">Login</button>
-      <button class="shop-header__login-btn shop-header__login-btn--out shop-header__log-out-btn hidden">LogOut</button>
+      <h1 class="shop-header__user-name hidden logged">###</h1>
+      <button class="shop-header__login-btn logOut">Login</button>
+      <button class="shop-header__login-btn shop-header__login-btn--out shop-header__log-out-btn hidden logged">LogOut</button>
       <button class="shop-header__settings-btn">
         <svg width=" 26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0)">
@@ -34,7 +34,7 @@
           </defs>
         </svg>
       </button>
-      <a href="#" class="shop-header__bag">
+      <a href="#" class="shop-header__bag logged">
         <img src="./lib/svg/bag.svg" alt="">
         <div class="cart-length">5</div>
       </a>
@@ -98,6 +98,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+  <script src="./js/authUtils.js"></script>
   <script src="./js/general.js"></script>
   <script src="./js/authModal.js"></script>
   <script src="./js/shop.js"></script>

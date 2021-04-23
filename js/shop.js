@@ -62,7 +62,7 @@ const createProduct = (doc, id) => {
   </aside>`;
   const thumbBtn = product.querySelector('.product__pay-btn'); 
   thumbBtn.addEventListener('click',()=>{
-    if(!isUser){
+    if(!loggedUser){
       authModal.classList.add('modal-active'); 
     }
   }); 
@@ -115,18 +115,13 @@ settingsToggle.addEventListener('click', () => {
 logOut.addEventListener('click', ()=>{
   firebase.auth().signOut()
   .then(()=>{
-    isUser = false; 
     console.log('session was closed');
-    logOut.classList.add('hidden'); 
-    document.querySelector('.shop-header__user-name').classList.add('hidden'); 
-    loginBtn.classList.remove('hidden'); 
   })
   .catch((error)=>console.log(error)); 
 });
 //select inputs stuff
 shopSettings.addEventListener('change', formChange);
 loginBtn.addEventListener('click',()=> {
-  // if(isUser) return
   authModal.classList.add('modal-active'); 
 });
 //sort stuff

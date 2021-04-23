@@ -26,7 +26,7 @@
     }
   }
   &__user-name{
-    text-transform: lowercase;
+    text-transform: capitalize;
     align-self: center;
     color: var(--font-gray);
     font-size: 18px;
