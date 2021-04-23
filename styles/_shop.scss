@@ -21,6 +21,16 @@
     font-family: var(--second-font);
     color: var(--font-gray);
     text-transform: capitalize;
+    &--out{
+      color: var(--main-salmon);
+    }
+  }
+  &__user-name{
+    align-self: center;
+    color: var(--font-gray);
+    font-size: 18px;
+    font-weight: 400;
+    font-family: var(--second-font);
   }
   &__bag {
     position: relative;
@@ -60,10 +70,10 @@
       }
     }
   }
-  &__option{
+  &__option {
     display: flex;
     flex-direction: column;
-    label{
+    label {
       margin-bottom: 10px;
     }
   }
@@ -92,37 +102,37 @@
   }
 }
 
-.shop-products{
+.shop-products {
   max-width: 750px;
   display: flex;
-  margin:  0 auto;
-  justify-content:space-between;
+  margin: 0 auto;
+  justify-content: space-between;
   padding: 20px;
   flex-wrap: wrap;
-  & >*{
+  & > * {
     margin-bottom: 20px;
   }
 }
 
 @media (max-width: 710px) {
-  .shop-products{
+  .shop-products {
     max-width: 400px;
     justify-content: center;
   }
 }
 
 @media (min-width: 1024px) {
-  .shop-products{
+  .shop-products {
     max-width: 1500px;
     justify-content: space-between;
   }
-  .shop-settings{
-    &__sort{
+  .shop-settings {
+    &__sort {
       max-width: 340px;
     }
-    &__option{
+    &__option {
       width: 35%;
-      &:nth-child(2){
+      &:nth-child(2) {
         margin-left: 20px;
         margin-right: 20px;
       }
@@ -130,10 +140,9 @@
     &__filter {
       max-width: 1200px;
       flex-direction: row;
-      select{
+      select {
         width: 100%;
       }
     }
   }
 }
-

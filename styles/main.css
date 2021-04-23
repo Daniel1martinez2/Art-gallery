@@ -1385,6 +1385,20 @@ body {
   text-transform: capitalize;
 }
 
+.shop-header__login-btn--out {
+  color: var(--main-salmon);
+}
+
+.shop-header__user-name {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: var(--font-gray);
+  font-size: 18px;
+  font-weight: 400;
+  font-family: var(--second-font);
+}
+
 .shop-header__bag {
   position: relative;
 }

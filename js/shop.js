@@ -3,6 +3,7 @@ const loginBtn = document.querySelector('.shop-header__login-btn');
 
 
 const settingsToggle = document.querySelector('.shop-header__settings-btn');
+const logOut = document.querySelector('.shop-header__log-out-btn');
 const shopSettings = document.querySelector('.shop-settings ');
 const productContainer = document.querySelector('.shop-products');
 const sortOptions = document.querySelector('.shop-settings__sort');
@@ -37,12 +38,12 @@ const createProduct = (doc, id) => {
   product.classList.add('product');
   const starsArray = starsMath(doc.rating); 
   product.innerHTML = `
-  <a href="/productDetail.html?product=${id}">
+  <a href="./productDetail.html?product=${id}">
     <img class="product__img"  src="${doc.images[0].url}" alt="">
   </a>
   <aside class="product__info">
     <div class="product__name-rate">
-      <h1>${doc.name.length > 11 ? doc.name.slice(0,11) + '...': doc.name}</h1>
+      <h1>${doc.name.length > 12 ? doc.name.slice(0,12) + '...': doc.name}</h1>
       <div class="product__stars">
         <img src="./lib/svg/star-${starsArray[0]}.svg" alt="" class="product__star--full">
         <img src="./lib/svg/star-${starsArray[1]}.svg" alt="" class="product__star--full">
@@ -61,7 +62,9 @@ const createProduct = (doc, id) => {
   </aside>`;
   const thumbBtn = product.querySelector('.product__pay-btn'); 
   thumbBtn.addEventListener('click',()=>{
-    authModal.classList.add('modal-active'); 
+    if(!isUser){
+      authModal.classList.add('modal-active'); 
+    }
   }); 
   productContainer.appendChild(product);
 
@@ -108,9 +111,24 @@ settingsToggle.addEventListener('click', () => {
   shopSettings.classList.toggle('hidden');
   settingsToggle.querySelector('path').classList.toggle('shop-header__features--active');
 });
+//logOut
+logOut.addEventListener('click', ()=>{
+  firebase.auth().signOut()
+  .then(()=>{
+    isUser = false; 
+    console.log('session was closed');
+    logOut.classList.add('hidden'); 
+    document.querySelector('.shop-header__user-name').classList.add('hidden'); 
+    loginBtn.classList.remove('hidden'); 
+  })
+  .catch((error)=>console.log(error)); 
+});
 //select inputs stuff
 shopSettings.addEventListener('change', formChange);
-loginBtn.addEventListener('click',()=> authModal.classList.add('modal-active'));
+loginBtn.addEventListener('click',()=> {
+  // if(isUser) return
+  authModal.classList.add('modal-active'); 
+});
 //sort stuff
 sortItems.forEach((item, i) => {
   item.addEventListener('click', (event) => {

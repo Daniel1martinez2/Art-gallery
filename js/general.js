@@ -9,13 +9,29 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-
+let isUser = false; 
 const db = firebase.firestore();
 const storage = firebase.storage(); 
-
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){
     let uid = user.uid; 
+    console.log(uid);
+    db.collection("users")
+    .doc(uid)
+    .get()
+    .then((doc)=>{
+      isUser = true;
+      const loggedUser = doc.data(); 
+      const loginText = document.querySelector('.shop-header__login-btn');
+      const logOut = document.querySelector('.shop-header__log-out-btn'); 
+      const userNameText = document.querySelector('.shop-header__user-name');  
+      if(loginText) loginText.classList.add('hidden'); 
+      if(logOut)logOut.classList.remove('hidden'); 
+      if(userNameText && doc.data()) {
+        userNameText?.classList.remove('hidden'); 
+        userNameText.innerText = `Hi ${loggedUser?.name.length > 6 ? loggedUser?.name.slice(0,6) + '...': loggedUser?.name}`; 
+      }
+    })
   }else{
 
   }

@@ -46,12 +46,17 @@ const userInfo = () => {
      password : form.password.value,
      confirmPassword : form.confirm.value,
   }
+}; 
+const clearForm = () => {
+  form.name.value = ''; 
+  form.email.value = ''; 
+  form.password.value = ''; 
+  form.confirm.value = ''; 
 }
 const hiddenRegister = () => {
   registerFields.forEach((elem)=>elem.classList.add('hidden')); 
 }
 hiddenRegister(); 
-
 closeModalBtn.addEventListener('click',()=> authModal.classList.remove('modal-active')); 
 loginModalBtn.addEventListener('click', (event)=>{
   event.preventDefault(); 
@@ -75,10 +80,8 @@ registerModalBtn.addEventListener('click', (event)=>{
         email: info.email,
       })
       .then(()=>{
-        form.name.value = ''; 
-        form.email.value = ''; 
-        form.password.value = ''; 
-        form.confirm.value = ''; 
+        clearForm(); 
+        authModal.classList.remove('modal-active'); 
       })
       .catch((error)=>{
         console.log(error)
