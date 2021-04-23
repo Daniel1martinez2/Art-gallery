@@ -14,6 +14,7 @@ const db = firebase.firestore();
 const storage = firebase.storage(); 
 let dataUser = null; 
 firebase.auth().onAuthStateChanged((user)=>{
+  console.log(loggedUser+' >>>>>>');
   if(user){
     let uid = user.uid; 
     console.log(uid);
@@ -27,9 +28,10 @@ firebase.auth().onAuthStateChanged((user)=>{
       userAuthChanged(true,dataUser); 
       console.log(loggedUser);
     })
-    .catch((error)=>console.log(error))
+    .catch((error)=>console.log(error.message))
   }else{
     loggedUser = null; 
+    dataUser = null; 
     userAuthChanged(false,dataUser); 
   }
 }) 

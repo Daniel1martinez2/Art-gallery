@@ -64,16 +64,20 @@ loginModalBtn.addEventListener('click', (event)=>{
   if(loginModalBtn.classList.contains('modal__btn--active')) {
     const info = userInfo();
     firebase.auth().signInWithEmailAndPassword(info.email,info.password)
+    .then(()=>{
+      clearForm(); 
+    })
   };
   modalBtnContainer.style.flexDirection = 'column'; 
   loginModalBtn.classList.add('modal__btn--active');
   registerModalBtn.classList.remove('modal__btn--active'); 
 }); 
 registerModalBtn.addEventListener('click', (event)=>{
-  if(registerModalBtn.classList.contains('modal__btn--active')) {
+  if(registerModalBtn.classList.contains('modal__btn--active') && !loggedUser) {
     const info = userInfo();
     firebase.auth().createUserWithEmailAndPassword(info.email,info.password)
     .then((userCredential) => {
+      clearForm(); 
       let user = userCredential.user;
       console.log(user);
       db.collection('users').doc(user.uid).set({

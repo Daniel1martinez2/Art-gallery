@@ -60,10 +60,14 @@ const createProduct = (doc, id) => {
       </button>
     </div>
   </aside>`;
-  const thumbBtn = product.querySelector('.product__pay-btn'); 
+  const thumbBtn = product.querySelector('.product__pay-btn');
   thumbBtn.addEventListener('click',()=>{
     if(!loggedUser){
       authModal.classList.add('modal-active'); 
+    }else{
+      if(loggedUser.admin){
+        //window.location = '../index.html'
+      }
     }
   }); 
   productContainer.appendChild(product);
@@ -115,6 +119,7 @@ settingsToggle.addEventListener('click', () => {
 logOut.addEventListener('click', ()=>{
   firebase.auth().signOut()
   .then(()=>{
+    loggedUser = null; 
     console.log('session was closed');
   })
   .catch((error)=>console.log(error)); 
