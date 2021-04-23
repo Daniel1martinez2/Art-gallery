@@ -1,7 +1,5 @@
 //elements
 const loginBtn = document.querySelector('.shop-header__login-btn'); 
-
-
 const settingsToggle = document.querySelector('.shop-header__settings-btn');
 const logOut = document.querySelector('.shop-header__log-out-btn');
 const shopSettings = document.querySelector('.shop-settings ');

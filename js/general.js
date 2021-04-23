@@ -26,12 +26,13 @@ firebase.auth().onAuthStateChanged((user)=>{
       loggedUser = dataUser;
       loggedUser.uid = uid; 
       userAuthChanged(true,dataUser); 
-      console.log(loggedUser);
+      console.log(doc.data());
+      console.log('Lorem ipsum dolor sit amet.');
     })
     .catch((error)=>console.log(error.message))
   }else{
-    loggedUser = null; 
     dataUser = null; 
+    loggedUser = null; 
     userAuthChanged(false,dataUser); 
   }
 }) 

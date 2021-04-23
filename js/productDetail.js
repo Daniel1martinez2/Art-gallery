@@ -15,7 +15,7 @@ db.collection('products')
     productWrapper.innerHTML = ` <main class="product-main">
     <header class="product-main__header">
       <a href="./shop.html">Shop</a>
-      <a href="#" class="shop-header__bag">
+      <a href="#" class="shop-header__bag notAdmin logged hidden">
         <img src="./lib/svg/bag.svg" alt="">
         <div class="cart-length">5</div>
       </a>
