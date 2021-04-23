@@ -26,6 +26,7 @@
     }
   }
   &__user-name{
+    text-transform: lowercase;
     align-self: center;
     color: var(--font-gray);
     font-size: 18px;

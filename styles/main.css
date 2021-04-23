@@ -1390,6 +1390,7 @@ body {
 }
 
 .shop-header__user-name {
+  text-transform: lowercase;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
