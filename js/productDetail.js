@@ -17,7 +17,7 @@ db.collection('products')
       <a href="./shop.html">Shop</a>
       <a href="#" class="shop-header__bag notAdmin logged hidden">
         <img src="./lib/svg/bag.svg" alt="">
-        <div class="cart-length">5</div>
+        <div class="cart-length hidden">0</div>
       </a>
     </header>
     <article class="product-main__prime">

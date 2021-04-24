@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="./lib/img/brand-logo-tittle.png" sizes="16x16">
+  <title>Cart</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+  <!-- one -->
+  <main class="cart">
+    <a href="./shop.html" class="cart__shop">shop</a>
+    <header class="cart__header">
+      <div class="cart__header-main-info">
+        <h1>My Cart</h1>
+        <div class="cart__number-container">
+          <h3>items <strong class="cart__items-number">0</strong></h3>
+        </div>
+      </div>
+    </header>
+    <article class="cart__products-container"></article>
+    <article class="cart__not-products hidden">
+      <h1>Not Current Products</h1>
+      <a href="./shop.html">
+        <button>Return To Shop</button>
+      </a>
+    </article>
+  </main>
+  <!-- two -->
+  <aside class="payment">
+    <div class="payment__info">
+      <div class="payment__summary">
+        <div class="payment__subtotal">
+          <h3>Subtotal</h3>
+          <h3>$686.00</h3>
+        </div>
+        <div class="payment__handling">
+          <h3>Shipping & handling</h3>
+          <h3>$10.00</h3>
+        </div>
+      </div>
+      <div class="payment__total">
+        <h1>Total</h1>
+        <h1>$696.00</h1>
+      </div>
+      <button class="payment__checkout-btn">
+        CheckOut
+      </button>
+    </div>
+
+  </aside>
+
+
+<body>
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+<script src="./js/authUtils.js"></script>
+<script src="./js/general.js"></script>
+
+</html>
