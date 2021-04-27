@@ -65,6 +65,10 @@ const createProduct = (doc, id) => {
     }else{
       if(loggedUser.admin){
         //window.location = '../index.html'
+      }else{
+        cart.push(doc);
+        localStorage.setItem('store__cart', JSON.stringify(cart));
+        cartBtnNumber.innerText = cart.length;
       }
     }
   }); 

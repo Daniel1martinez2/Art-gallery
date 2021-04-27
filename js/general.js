@@ -36,6 +36,18 @@ firebase.auth().onAuthStateChanged((user)=>{
     userAuthChanged(false,dataUser); 
   }
 }) 
+
+//cart stuff
+let cart = [];
+const cartBtnNumber = document.querySelector('.cart-length');
+
+const cartFromLS = localStorage.getItem('store__cart');
+if(cartFromLS) {
+  cart = JSON.parse(cartFromLS);
+  if(cartBtnNumber) {
+    cartBtnNumber.innerText = cart.length;
+  }
+} 
 //star stuff
 const starsMath = (rating) => {
   const stars = []; 
