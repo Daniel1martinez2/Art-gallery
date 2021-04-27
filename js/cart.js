@@ -1,6 +1,6 @@
 const productsCartContainer = document.querySelector('.cart__products-container');
 
-cart.forEach((currentProduct)=>{
+cart.forEach((currentProduct, index)=>{
   console.log(currentProduct);
   const cartProduct = document.createElement('div'); 
   cartProduct.classList.add('cart__product'); 
