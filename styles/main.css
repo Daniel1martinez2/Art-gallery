@@ -2390,6 +2390,67 @@ body {
   border-radius: 3px;
 }
 
+.cart__products-container {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.cart__product {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 1px solid #5c5c5c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.cart__product:nth-child(1) {
+  margin-top: 0;
+}
+
+.cart__product-name-price h1 {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--main-white);
+  margin-bottom: 5px;
+}
+
+.cart__product-name-price h3 {
+  font-size: 15px;
+  color: var(--font-gray);
+}
+
+.cart__product-main-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.cart__product-main-info img {
+  margin-right: 20px;
+  width: 70px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 5px;
+}
+
 .payment {
   position: fixed;
   bottom: 0;
@@ -2407,7 +2468,7 @@ body {
 .payment__info {
   font-family: var(--second-font);
   padding: 20px 20px 50px 20px;
-  width: 300px;
+  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2478,9 +2539,35 @@ body {
 .payment__checkout-btn {
   background-color: var(--main-yellow);
   width: 100%;
+  max-width: 300px;
   padding: 8px;
   border-radius: 5px;
   font-size: 15px;
+}
+
+@media (min-width: 1024px) {
+  .cart-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .cart {
+    width: 70%;
+  }
+  .cart__products-container {
+    max-height: 80vh;
+  }
+  .payment {
+    width: 30%;
+    position: relative;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    padding-bottom: 5em;
+  }
+  .payment__info {
+    width: 80%;
+    max-width: 500px;
+  }
 }
 
 .hidden {
