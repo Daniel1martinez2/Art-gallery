@@ -2165,6 +2165,7 @@ body {
 }
 
 .detail__info {
+  width: 100%;
   max-width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;

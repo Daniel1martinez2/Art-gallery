@@ -19,8 +19,11 @@ if (params.get('product')) {
     .then(() => {
       console.log("Document successfully deleted!");
       clearForm();
+      clearImages();
+      window.location = '../shop.html'; 
     }).catch((error) => {
       console.error("Error removing document: ", error);
+      window.location = '../shop.html'; 
     });
   })
 
@@ -57,7 +60,8 @@ if (params.get('product')) {
 
         });
       });
-    });
+    })
+    .catch((error)=>  window.location = '../shop.html'); 
 }
 // const currentProductEdited = 
 // console.log(params.get('product'));
@@ -85,10 +89,6 @@ form.file.addEventListener('change', () => {
     filesArray.splice(filesArray.indexOf(file), 1);
   });
 });
-const addImageThumb = () => {
-
-
-}
 const clearImages = () => {
   prevContainer.innerHTML = '';
   //reset files array
@@ -156,6 +156,7 @@ form.addEventListener('submit', (event) => {
                   //the last thing that happens
                   clearForm();
                   clearImages();
+                  console.log('upload has been done');
                 })
                 .catch(genericCatch);
             })
