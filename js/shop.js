@@ -6,7 +6,7 @@ const shopSettings = document.querySelector('.shop-settings ');
 const productContainer = document.querySelector('.shop-products');
 const sortOptions = document.querySelector('.shop-settings__sort');
 const sortItems = document.querySelectorAll('.shop-settings__sort-item');
-console.log(shopSettings);
+const addProduct = document.querySelector('.shop-header__add-product');
 const sortOptionsArray = [{
     checked: false,
     name: 'Popular'
@@ -134,6 +134,9 @@ logOut.addEventListener('click', ()=>{
   })
   .catch((error)=>console.log(error)); 
 });
+
+addProduct.addEventListener('click', ()=> window.location = '../editProducts.html')
+
 //select inputs stuff
 shopSettings.addEventListener('change', formChange);
 loginBtn.addEventListener('click',()=> {

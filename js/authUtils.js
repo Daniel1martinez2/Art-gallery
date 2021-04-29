@@ -37,14 +37,17 @@ const loginAdmin = () => {
   document.querySelectorAll('.product__pay-btn').forEach(elem => {
     elem.innerHTML = `<img src="./lib/svg/bag.svg" alt=""> edit product`;
   });
-  document.querySelector('.btn-msg').innerText = 'Edit Product'; 
+  const btnMsg = document.querySelector('.btn-msg');
+  if(btnMsg) btnMsg.innerText = 'Edit Product'; 
   
 }
 const logOutDefault = () => {
   document.querySelectorAll('.product__pay-btn').forEach(elem => {
     elem.innerHTML = `<img src="./lib/svg/bag.svg" alt=""> add to cart`
   });
-  document.querySelector('.btn-msg').innerText = 'Add To Cart'; 
+  const btnMsg = document.querySelector('.btn-msg');
+  if(btnMsg) btnMsg.innerText = 'Add To Cart'; 
+
   document.querySelectorAll('.admin').forEach(element => {
     element.classList.add('hidden');
   });

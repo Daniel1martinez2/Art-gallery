@@ -4,45 +4,60 @@ const prevThumbs = document.querySelectorAll('.edit-form__img-prev');
 const prevContainer = document.querySelector('.edit-form__preview');
 const clearBtn = document.querySelector('.edit-form__clear');
 const filesArray = [];
-const params = new URLSearchParams(location.search); 
-let editing = false; 
-if(params.get('product')){
-  editing = true; 
-  db.collection('products')
-  .doc(params.get('product'))
-  .get()
-  .then((doc)=>{
-    const data = doc.data(); 
-    console.log(data);
+const params = new URLSearchParams(location.search);
+let editing = false;
+const deleteProduct = document.querySelector('.edit-product__delete');
+if (params.get('product')) {
+  deleteProduct.classList.remove('hidden');
+  editing = true;
 
-    form.name.value = data.name; 
-    form.author.value = data.author;
-    form.year.value = data.year;
-    form.price.value = data.price;
-    form.country.value = data.country;
-    form.rating.value = data.rating;
-    form.technique.value = data.technique;
-    form.vanguard.value = data.vanguard;
-    form.description.value = data.description;
-    form.size.value = data.size;
-    data.images.forEach((elem, index)=>{
-      const imgThumb = document.createElement('div');
-      imgThumb.style.backgroundImage = `url(${elem.url})`;
-      imgThumb.classList.add('edit-form__img-prev');
-      imgThumb.innerHTML = `
+  //delete product stuff
+  deleteProduct.addEventListener('click', () => {
+    db.collection("products")
+    .doc(params.get('product'))
+    .delete()
+    .then(() => {
+      console.log("Document successfully deleted!");
+      clearForm();
+    }).catch((error) => {
+      console.error("Error removing document: ", error);
+    });
+  })
+
+  db.collection('products')
+    .doc(params.get('product'))
+    .get()
+    .then((doc) => {
+      const data = doc.data();
+      console.log(data);
+      form.name.value = data.name;
+      form.author.value = data.author;
+      form.year.value = data.year;
+      form.price.value = data.price;
+      form.country.value = data.country;
+      form.rating.value = data.rating;
+      form.technique.value = data.technique;
+      form.vanguard.value = data.vanguard;
+      form.description.value = data.description;
+      form.size.value = data.size;
+      data.images.forEach((elem, index) => {
+        const imgThumb = document.createElement('div');
+        imgThumb.style.backgroundImage = `url(${elem.url})`;
+        imgThumb.classList.add('edit-form__img-prev');
+        imgThumb.innerHTML = `
         <button type="button" class="delete-image-btn" >
           <img src="./lib/svg/close-salmon.svg" alt="">
         </button>
-      `; 
-      prevContainer.appendChild(imgThumb);
-      imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event)=>{
-        db.collection('products').doc(params.get('product')).update({
+      `;
+        prevContainer.appendChild(imgThumb);
+        imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event) => {
+          db.collection('products').doc(params.get('product')).update({
             //images: [{},{},{}]
-        })
-        
+          })
+
+        });
       });
     });
-  }); 
 }
 // const currentProductEdited = 
 // console.log(params.get('product'));
@@ -63,35 +78,35 @@ form.file.addEventListener('change', () => {
     <button type="button" class="delete-image-btn" >
       <img src="./lib/svg/close-salmon.svg" alt="">
     </button>
-  `; 
+  `;
   prevContainer.appendChild(imgThumb);
-  imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event)=>{
-    prevContainer.removeChild(imgThumb); 
-    filesArray.splice(filesArray.indexOf(file),1);
-  }); 
-}); 
+  imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event) => {
+    prevContainer.removeChild(imgThumb);
+    filesArray.splice(filesArray.indexOf(file), 1);
+  });
+});
 const addImageThumb = () => {
 
-  
+
 }
 const clearImages = () => {
-  prevContainer.innerHTML = ''; 
+  prevContainer.innerHTML = '';
   //reset files array
   while (filesArray.length) {
     filesArray.pop();
   }
 }
-clearBtn.addEventListener('click', (event)=>{
+clearBtn.addEventListener('click', (event) => {
   event.preventDefault();
-  clearImages(); 
+  clearImages();
 });
 form.addEventListener('submit', (event) => {
-  console.log('<<<<<<<<<>>>>>>>>'+ editing);
+  console.log('<<<<<<<<<>>>>>>>>' + editing);
   event.preventDefault();
-  if(editing) {
+  if (editing) {
     console.log('editting');
     return
-  }; 
+  };
   const product = {
     name: form.name.value,
     author: form.author.value,
@@ -105,7 +120,7 @@ form.addEventListener('submit', (event) => {
     size: form.description.value,
     images: [],
   };
-  const genericCatch = (error)=> {
+  const genericCatch = (error) => {
     console.log('There was an error in the product upload');
   }
   db.collection("products").add(product)
@@ -113,52 +128,56 @@ form.addEventListener('submit', (event) => {
       //reference to all promises i will do, so then i can wait for all to finish
       const uploadPromises = [];
       const downloadUrlPromises = [];
-      
-      filesArray.forEach( (file)=> {
+
+      filesArray.forEach((file) => {
         let storageRef = firebase.storage().ref();
         let fileRef = storageRef.child(`products/${docRef.id}/${file.name}`);
         // Wait for upload image
         uploadPromises.push(fileRef.put(file));
       });
       //
-      Promise.all(uploadPromises).then( (snapshots)=> {
-        snapshots.forEach( (snapshot)=> {
-          // Wait for image URL
-          downloadUrlPromises.push(snapshot.ref.getDownloadURL());
-        });
-        Promise.all(downloadUrlPromises).then( (downloadURLs)=> {
-  
-          const images = [];
-          downloadURLs.forEach((url, index) => {
-            images.push({
-              url: url,
-              ref: snapshots[index].ref.fullPath
-            });
+      Promise.all(uploadPromises).then((snapshots) => {
+          snapshots.forEach((snapshot) => {
+            // Wait for image URL
+            downloadUrlPromises.push(snapshot.ref.getDownloadURL());
           });
-          db.collection('products').doc(docRef.id).update({
-            images: images
-          }).then( ()=>{
-            //the last thing that happens
-              form.name.value = ''; 
-              form.author.value = ''; 
-              form.year.value = ''; 
-              form.price.value = ''; 
-              form.country.value = ''; 
-              form.rating.value = ''; 
-              form.technique.value = ''; 
-              form.vanguard.value = ''; 
-              form.description.value = ''; 
-              form.size.value = ''; 
-              clearImages(); 
-          })
-          .catch(genericCatch);
+          Promise.all(downloadUrlPromises).then((downloadURLs) => {
+
+              const images = [];
+              downloadURLs.forEach((url, index) => {
+                images.push({
+                  url: url,
+                  ref: snapshots[index].ref.fullPath
+                });
+              });
+              db.collection('products').doc(docRef.id).update({
+                  images: images
+                }).then(() => {
+                  //the last thing that happens
+                  clearForm();
+                  clearImages();
+                })
+                .catch(genericCatch);
+            })
+            .catch(genericCatch);
         })
         .catch(genericCatch);
-      })
-      .catch(genericCatch);
       console.log("Document added", docRef.id);
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
     });
 });
+
+const clearForm = ()=>{
+  form.name.value = '';
+  form.author.value = '';
+  form.year.value = '';
+  form.price.value = '';
+  form.country.value = '';
+  form.rating.value = '';
+  form.technique.value = '';
+  form.vanguard.value = '';
+  form.description.value = '';
+  form.size.value = '';
+}
