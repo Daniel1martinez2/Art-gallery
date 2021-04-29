@@ -15,7 +15,7 @@ db.collection('products')
     productWrapper.innerHTML = ` <main class="product-main">
     <header class="product-main__header">
       <a href="./shop.html">Shop</a>
-      <a href="#" class="shop-header__bag notAdmin logged hidden">
+      <a href="../cart.html" class="shop-header__bag notAdmin logged hidden">
         <img src="./lib/svg/bag.svg" alt="">
         <div class="cart-length ${cart.length >0? '': 'hidden'}">${cart.length ? cart.length: 0}</div>
       </a>
@@ -74,8 +74,9 @@ db.collection('products')
           window.location = '../editProducts.html?product='+id; 
           console.log('admin user');
         }else{
-          cart.push(doc);
+          cart.push(data);
           localStorage.setItem('store__cart', JSON.stringify(cart));
+          productWrapper.querySelector('.cart-length').classList.remove('hidden'); 
           productWrapper.querySelector('.cart-length').innerText = cart.length; 
           console.log(cartBtnNumber);
           console.log('normal user');
