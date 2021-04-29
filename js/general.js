@@ -33,19 +33,21 @@ firebase.auth().onAuthStateChanged((user)=>{
   }else{
     dataUser = null; 
     loggedUser = null; 
+    localStorage.clear();
+    cartBtnNumber.innerText = '0';
     userAuthChanged(false,dataUser); 
   }
 }) 
 
 //cart stuff
 let cart = [];
-const cartBtnNumber = document.querySelector('.cart-length');
+const cartBtnNumber = document.querySelectorAll('.cart-length');
 
 const cartFromLS = localStorage.getItem('store__cart');
 if(cartFromLS) {
   cart = JSON.parse(cartFromLS);
   if(cartBtnNumber) {
-    cartBtnNumber.innerText = cart.length;
+    cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
   }
 } 
 //star stuff

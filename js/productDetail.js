@@ -17,7 +17,7 @@ db.collection('products')
       <a href="./shop.html">Shop</a>
       <a href="#" class="shop-header__bag notAdmin logged hidden">
         <img src="./lib/svg/bag.svg" alt="">
-        <div class="cart-length hidden">0</div>
+        <div class="cart-length ${cart.length >0? '': 'hidden'}">${cart.length ? cart.length: 0}</div>
       </a>
     </header>
     <article class="product-main__prime">
@@ -48,7 +48,9 @@ db.collection('products')
       </div>
       <button class="detail__purchase">
         <img src="./lib/svg/bag.svg" alt="">
-        Add to cart
+        <span class="btn-msg">
+          Add to cart
+        </span>
       </button>
     </article>
     </aside>`; 
@@ -64,7 +66,21 @@ db.collection('products')
       }); 
     }); 
     productWrapper.querySelector('.detail__purchase').addEventListener('click', ()=>{
-      authModal.classList.add('modal-active'); 
+      
+      if(!loggedUser){
+        authModal.classList.add('modal-active'); 
+      }else{
+        if(loggedUser.admin){
+          window.location = '../editProducts.html?product='+id; 
+          console.log('admin user');
+        }else{
+          cart.push(doc);
+          localStorage.setItem('store__cart', JSON.stringify(cart));
+          productWrapper.querySelector('.cart-length').innerText = cart.length; 
+          console.log(cartBtnNumber);
+          console.log('normal user');
+        }
+      }
     });  
   });
 

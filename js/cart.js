@@ -8,7 +8,7 @@ cart.forEach((currentProduct, index)=>{
     <div class="cart__product-main-info">
     <img src="${currentProduct.images[0].url}" alt="">
     <div class="cart__product-name-price">
-      <h1>${currentProduct.name}</h1>
+      <h1>${currentProduct.name.length > 13? currentProduct.name.slice(0,13) + '...': currentProduct.name }</h1>
       <h3>$${currentProduct.price}</h3>
     </div>
   </div>

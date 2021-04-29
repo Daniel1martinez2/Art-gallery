@@ -64,11 +64,14 @@ const createProduct = (doc, id) => {
       authModal.classList.add('modal-active'); 
     }else{
       if(loggedUser.admin){
-        //window.location = '../index.html'
+        window.location = '../editProducts.html?product='+id; 
+        console.log('admin user');
       }else{
         cart.push(doc);
         localStorage.setItem('store__cart', JSON.stringify(cart));
-        cartBtnNumber.innerText = cart.length;
+        cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
+        console.log(cartBtnNumber);
+        console.log('normal user');
       }
     }
   }); 
@@ -121,7 +124,12 @@ settingsToggle.addEventListener('click', () => {
 logOut.addEventListener('click', ()=>{
   firebase.auth().signOut()
   .then(()=>{
-    loggedUser = null; 
+    loggedUser = null;     
+    localStorage.clear(); 
+    while (cart.length) {
+      cart.pop();
+    }
+    cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
     console.log('session was closed');
   })
   .catch((error)=>console.log(error)); 

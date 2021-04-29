@@ -1687,16 +1687,15 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  justify-content: end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.edit-product__log-out {
+.edit-product__shop {
   text-transform: capitalize;
   color: var(--font-gray);
   font-size: 12pt;
@@ -1704,7 +1703,7 @@ body {
   margin-right: 10px;
 }
 
-.edit-product__log-out:hover {
+.edit-product__shop:hover {
   color: white;
 }
 

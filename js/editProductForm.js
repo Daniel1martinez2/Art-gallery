@@ -4,9 +4,52 @@ const prevThumbs = document.querySelectorAll('.edit-form__img-prev');
 const prevContainer = document.querySelector('.edit-form__preview');
 const clearBtn = document.querySelector('.edit-form__clear');
 const filesArray = [];
+const params = new URLSearchParams(location.search); 
+let editing = false; 
+if(params.get('product')){
+  editing = true; 
+  db.collection('products')
+  .doc(params.get('product'))
+  .get()
+  .then((doc)=>{
+    const data = doc.data(); 
+    console.log(data);
+
+    form.name.value = data.name; 
+    form.author.value = data.author;
+    form.year.value = data.year;
+    form.price.value = data.price;
+    form.country.value = data.country;
+    form.rating.value = data.rating;
+    form.technique.value = data.technique;
+    form.vanguard.value = data.vanguard;
+    form.description.value = data.description;
+    form.size.value = data.size;
+    data.images.forEach((elem, index)=>{
+      const imgThumb = document.createElement('div');
+      imgThumb.style.backgroundImage = `url(${elem.url})`;
+      imgThumb.classList.add('edit-form__img-prev');
+      imgThumb.innerHTML = `
+        <button type="button" class="delete-image-btn" >
+          <img src="./lib/svg/close-salmon.svg" alt="">
+        </button>
+      `; 
+      prevContainer.appendChild(imgThumb);
+      imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event)=>{
+        db.collection('products').doc(params.get('product')).update({
+            //images: [{},{},{}]
+        })
+        
+      });
+    });
+  }); 
+}
+// const currentProductEdited = 
+// console.log(params.get('product'));
 form.file.addEventListener('change', () => {
   let file = form.file.files[0];
   if (!file) return
+  const imgThumb = document.createElement('div');
   let reader = new FileReader();
   reader.onload = (e) => {
     imgThumb.style.backgroundImage = `url(${e.target.result})`;
@@ -15,18 +58,22 @@ form.file.addEventListener('change', () => {
   reader.readAsDataURL(file);
   //add current selected file to the array
   filesArray.push(file);
-  const imgThumb = document.createElement('div');
   imgThumb.classList.add('edit-form__img-prev');
-  const deleteImageBtn = document.createElement('button'); 
-  deleteImageBtn.setAttribute('type','button');
-  deleteImageBtn.innerHTML = ` <img src="./lib/svg/close-salmon.svg" alt="">`;
-  imgThumb.appendChild(deleteImageBtn); 
-  deleteImageBtn.addEventListener('click', (event)=>{
+  imgThumb.innerHTML = `
+    <button type="button" class="delete-image-btn" >
+      <img src="./lib/svg/close-salmon.svg" alt="">
+    </button>
+  `; 
+  prevContainer.appendChild(imgThumb);
+  imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event)=>{
     prevContainer.removeChild(imgThumb); 
     filesArray.splice(filesArray.indexOf(file),1);
   }); 
-  prevContainer.appendChild(imgThumb);
 }); 
+const addImageThumb = () => {
+
+  
+}
 const clearImages = () => {
   prevContainer.innerHTML = ''; 
   //reset files array
@@ -39,7 +86,12 @@ clearBtn.addEventListener('click', (event)=>{
   clearImages(); 
 });
 form.addEventListener('submit', (event) => {
+  console.log('<<<<<<<<<>>>>>>>>'+ editing);
   event.preventDefault();
+  if(editing) {
+    console.log('editting');
+    return
+  }; 
   const product = {
     name: form.name.value,
     author: form.author.value,
@@ -50,6 +102,7 @@ form.addEventListener('submit', (event) => {
     technique: form.technique.value,
     vanguard: form.vanguard.value,
     description: form.description.value,
+    size: form.description.value,
     images: [],
   };
   const genericCatch = (error)=> {
