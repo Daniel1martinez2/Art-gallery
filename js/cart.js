@@ -1,5 +1,8 @@
 const productsCartContainer = document.querySelector('.cart__products-container');
+const subtotalElem = document.querySelector('.subtotal-number');
+const totalElem = document.querySelector('.total-number');
 
+let subtotal = 0; 
 cart.forEach((currentProduct, index)=>{
   console.log(currentProduct);
   const cartProduct = document.createElement('div'); 
@@ -16,4 +19,8 @@ cart.forEach((currentProduct, index)=>{
     <img src="./lib/svg/delete.svg" alt="">
   </button>`; 
   productsCartContainer.appendChild(cartProduct); 
+  subtotal += currentProduct.price
 }); 
+
+subtotalElem.innerText = `$${subtotal}.00`; 
+totalElem.innerText = `$${subtotal + 10}.00`; 

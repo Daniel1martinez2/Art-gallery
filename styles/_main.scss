@@ -128,16 +128,21 @@
     }
   }
   &__curly {
-    margin-top: 1em;
-    transform: scale(0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    stroke-dasharray: 500;
+    stroke-dashoffset: 0;
+    animation: showIt 2s infinite;
     position: absolute;
+    width: 60%;
+    &-form{
+      left: 0;
+      transform: translate(0, -50%);
+    }
   }
   &__curly-wrapper {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: showIt 2s infinite;
     width: 300px;
     height: 100px;
     overflow: hidden;
@@ -146,13 +151,13 @@
 
 @keyframes showIt {
   0% {
-    width: 0;
+    stroke-dashoffset: 500;
   }
   50% {
-    width: 200px;
+    stroke-dashoffset: 0;
   }
   100% {
-    width: 0;
+    stroke-dashoffset: 500;
   }
 }
 @media (min-width: 1024px) {
