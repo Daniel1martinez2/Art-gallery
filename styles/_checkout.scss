@@ -1,0 +1,67 @@
+
+.checkout{
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  header{
+    h1{
+      color: var(--main-white);
+      font-family: var(--main-font);
+      font-size: 18px;
+      margin-bottom: 60px;
+    }
+  }
+
+  form{
+    width: 80%;
+  }
+  
+  &__input-wrap{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--second-font);
+    margin-bottom: 20px;
+    label{
+      margin-bottom: 5px;
+      font-size: 15px;
+      color: var(--font-gray);
+    }
+    input{
+      background-color: var(--black-three);
+      border: none;
+      outline: none;
+      height: 25px;
+      border-radius: 3px;
+      padding-left: 10px;
+      color: var(--main-white);
+    }
+  }
+  &__cards-opt{
+    img{
+      cursor: pointer;
+      width: 40px;
+      background-color: var(--black-three);
+      border-radius: 3px;
+      margin-right: 10px;
+      &:hover{
+        background-color: var(--font-gray);
+      }
+    }
+  }
+  &__info{
+    border-bottom: 1px solid var(--font-gray);
+    
+  }
+  &__pay{
+    margin-top: 40px;
+    background-color: var(--main-salmon);
+    font-family: var(--second-font);
+    color: white;
+    text-transform: capitalize;
+    padding: 5px;
+    width: 100%;
+    border-radius: 3px;
+  }
+}

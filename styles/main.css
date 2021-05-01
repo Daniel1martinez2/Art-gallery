@@ -2581,4 +2581,85 @@ body {
 .hidden {
   display: none;
 }
+
+.checkout {
+  padding: 20px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.checkout header h1 {
+  color: var(--main-white);
+  font-family: var(--main-font);
+  font-size: 18px;
+  margin-bottom: 60px;
+}
+
+.checkout form {
+  width: 80%;
+}
+
+.checkout__input-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: var(--second-font);
+  margin-bottom: 20px;
+}
+
+.checkout__input-wrap label {
+  margin-bottom: 5px;
+  font-size: 15px;
+  color: var(--font-gray);
+}
+
+.checkout__input-wrap input {
+  background-color: var(--black-three);
+  border: none;
+  outline: none;
+  height: 25px;
+  border-radius: 3px;
+  padding-left: 10px;
+  color: var(--main-white);
+}
+
+.checkout__cards-opt img {
+  cursor: pointer;
+  width: 40px;
+  background-color: var(--black-three);
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+.checkout__cards-opt img:hover {
+  background-color: var(--font-gray);
+}
+
+.checkout__info {
+  border-bottom: 1px solid var(--font-gray);
+}
+
+.checkout__pay {
+  margin-top: 40px;
+  background-color: var(--main-salmon);
+  font-family: var(--second-font);
+  color: white;
+  text-transform: capitalize;
+  padding: 5px;
+  width: 100%;
+  border-radius: 3px;
+}
 /*# sourceMappingURL=main.css.map */
