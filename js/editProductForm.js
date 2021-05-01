@@ -3,6 +3,7 @@ const form = document.querySelector('.edit-form');
 const prevThumbs = document.querySelectorAll('.edit-form__img-prev');
 const prevContainer = document.querySelector('.edit-form__preview');
 const clearBtn = document.querySelector('.edit-form__clear');
+const loadAnimation = document.querySelector('.load-animation');
 const filesArray = [];
 const params = new URLSearchParams(location.search);
 let editing = false;
@@ -101,6 +102,7 @@ clearBtn.addEventListener('click', (event) => {
   clearImages();
 });
 form.addEventListener('submit', (event) => {
+  loadAnimation.classList.remove('hidden'); 
   console.log('<<<<<<<<<>>>>>>>>' + editing);
   event.preventDefault();
   if (editing) {
@@ -154,6 +156,7 @@ form.addEventListener('submit', (event) => {
                   images: images
                 }).then(() => {
                   //the last thing that happens
+                  loadAnimation.classList.add('hidden'); 
                   clearForm();
                   clearImages();
                   console.log('upload has been done');

@@ -135,7 +135,7 @@ logOut.addEventListener('click', ()=>{
   .catch((error)=>console.log(error)); 
 });
 
-addProduct.addEventListener('click', ()=> window.location = '../editProducts.html')
+addProduct.addEventListener('click', ()=> window.location = './editProducts.html')
 
 //select inputs stuff
 shopSettings.addEventListener('change', formChange);
