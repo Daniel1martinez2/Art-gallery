@@ -64,10 +64,10 @@ const createProduct = (doc, id) => {
       authModal.classList.add('modal-active'); 
     }else{
       if(loggedUser.admin){
-        window.location = '../editProducts.html?product='+id; 
+        window.location = './editProducts.html?product='+id; 
         console.log('admin user');
       }else{
-        cart.push(doc);
+        cart.push({...doc,id});
         localStorage.setItem('store__cart', JSON.stringify(cart));
         cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
         console.log(cartBtnNumber);

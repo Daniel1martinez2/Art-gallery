@@ -2606,6 +2606,7 @@ body {
 
 .checkout form {
   width: 80%;
+  max-width: 590px;
 }
 
 .checkout__input-wrap {
@@ -2634,6 +2635,8 @@ body {
   border-radius: 3px;
   padding-left: 10px;
   color: var(--main-white);
+  font-family: var(--second-font);
+  font-size: 12px;
 }
 
 .checkout__cards-opt img {
@@ -2646,6 +2649,10 @@ body {
 
 .checkout__cards-opt img:hover {
   background-color: var(--font-gray);
+}
+
+.checkout__cards-opt .selected {
+  background-color: var(--main-yellow);
 }
 
 .checkout__info {

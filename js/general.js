@@ -10,13 +10,14 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 let loggedUser = null; 
+let loggedUserUID = null; 
 const db = firebase.firestore();
 const storage = firebase.storage(); 
 let dataUser = null; 
 firebase.auth().onAuthStateChanged((user)=>{
-  console.log(loggedUser+' >>>>>>');
   if(user){
     let uid = user.uid; 
+    loggedUserUID = uid;
     console.log(uid);
     db.collection("users")
     .doc(uid)

@@ -71,10 +71,10 @@ db.collection('products')
         authModal.classList.add('modal-active'); 
       }else{
         if(loggedUser.admin){
-          window.location = '../editProducts.html?product='+id; 
+          window.location = './editProducts.html?product='+id; 
           console.log('admin user');
         }else{
-          cart.push(data);
+          cart.push({...data,id});
           localStorage.setItem('store__cart', JSON.stringify(cart));
           productWrapper.querySelector('.cart-length').classList.remove('hidden'); 
           productWrapper.querySelector('.cart-length').innerText = cart.length; 
