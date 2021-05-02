@@ -125,10 +125,7 @@ logOut.addEventListener('click', ()=>{
   firebase.auth().signOut()
   .then(()=>{
     loggedUser = null;     
-    localStorage.clear(); 
-    while (cart.length) {
-      cart.pop();
-    }
+    defaultCartState(); 
     cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
     console.log('session was closed');
   })

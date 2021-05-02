@@ -51,6 +51,13 @@ if(cartFromLS) {
     cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
   }
 } 
+
+const defaultCartState = ()=>{
+  localStorage.clear(); 
+  while (cart.length) {
+    cart.pop();
+  }
+}
 //star stuff
 const starsMath = (rating) => {
   const stars = []; 
