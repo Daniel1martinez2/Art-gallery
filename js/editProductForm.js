@@ -15,17 +15,17 @@ if (params.get('product')) {
   //delete product stuff
   deleteProduct.addEventListener('click', () => {
     db.collection("products")
-    .doc(params.get('product'))
-    .delete()
-    .then(() => {
-      console.log("Document successfully deleted!");
-      clearForm();
-      clearImages();
-      window.location = './shop.html'; 
-    }).catch((error) => {
-      console.error("Error removing document: ", error);
-      window.location = './shop.html'; 
-    });
+      .doc(params.get('product'))
+      .delete()
+      .then(() => {
+        console.log("Document successfully deleted!");
+        clearForm();
+        clearImages();
+        window.location = './shop.html';
+      }).catch((error) => {
+        console.error("Error removing document: ", error);
+        window.location = './shop.html';
+      });
   })
 
   db.collection('products')
@@ -54,18 +54,17 @@ if (params.get('product')) {
         </button>
       `;
         prevContainer.appendChild(imgThumb);
-        imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event) => {
-          db.collection('products').doc(params.get('product')).update({
-            //images: [{},{},{}]
-          })
+        filesArray.push(elem); 
+        // imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event) => {
+        //   db.collection('products').doc(params.get('product')).update({
+        //     //images: [{},{},{}]
+        //   })
 
-        });
+        // });
       });
     })
-    .catch((error)=>  window.location = './shop.html'); 
+    .catch((error) => window.location = './shop.html');
 }
-// const currentProductEdited = 
-// console.log(params.get('product'));
 form.file.addEventListener('change', () => {
   let file = form.file.files[0];
   if (!file) return
@@ -102,11 +101,31 @@ clearBtn.addEventListener('click', (event) => {
   clearImages();
 });
 form.addEventListener('submit', (event) => {
-  loadAnimation.classList.remove('hidden'); 
-  console.log('<<<<<<<<<>>>>>>>>' + editing);
   event.preventDefault();
+  loadAnimation.classList.remove('hidden');
+  console.log('<<<<<<<<<>>>>>>>>' + editing);
   if (editing) {
     console.log('editing');
+      
+    db.collection('products').doc(params.get('product')).update({
+      name: form.name.value,
+      author: form.author.value,
+      year: parseInt(form.year.value),
+      price: parseInt(form.price.value),
+      country: form.country.value,
+      rating: parseFloat(form.rating.value),
+      technique: form.technique.value,
+      vanguard: form.vanguard.value,
+      description: form.description.value,
+      size: form.size.value,
+      //images: [],
+      }).then(() => {
+        //the last thing that happens
+        loadAnimation.classList.add('hidden');
+        console.log('editing has been done');
+        console.log(filesArray);
+      })
+      .catch((error)=> console.log(error.message));
     return
   };
   const product = {
@@ -119,7 +138,7 @@ form.addEventListener('submit', (event) => {
     technique: form.technique.value,
     vanguard: form.vanguard.value,
     description: form.description.value,
-    size: form.description.value,
+    size: form.size.value,
     images: [],
   };
   const genericCatch = (error) => {
@@ -137,7 +156,6 @@ form.addEventListener('submit', (event) => {
         // Wait for upload image
         uploadPromises.push(fileRef.put(file));
       });
-      //
       Promise.all(uploadPromises).then((snapshots) => {
           snapshots.forEach((snapshot) => {
             // Wait for image URL
@@ -156,7 +174,7 @@ form.addEventListener('submit', (event) => {
                   images: images
                 }).then(() => {
                   //the last thing that happens
-                  loadAnimation.classList.add('hidden'); 
+                  loadAnimation.classList.add('hidden');
                   clearForm();
                   clearImages();
                   console.log('upload has been done');
@@ -173,7 +191,7 @@ form.addEventListener('submit', (event) => {
     });
 });
 
-const clearForm = ()=>{
+const clearForm = () => {
   form.name.value = '';
   form.author.value = '';
   form.year.value = '';

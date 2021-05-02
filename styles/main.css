@@ -2670,6 +2670,43 @@ body {
   border-radius: 3px;
 }
 
+.checkout-done {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: var(--second-font);
+}
+
+.checkout-done > * {
+  margin-bottom: 10px;
+}
+
+.checkout-done h1 {
+  color: var(--main-white);
+  font-weight: 400;
+}
+
+.checkout-done a {
+  color: var(--black-one);
+  font-weight: 600;
+  background-color: var(--main-yellow);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
 .orders {
   padding: 20px;
 }

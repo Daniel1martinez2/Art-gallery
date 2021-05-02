@@ -30,7 +30,8 @@ document.querySelector('.checkout__pay').addEventListener('click', (event) => {
     checkoutForm.name.value = ''; 
     checkoutForm.id.value = ''; 
     checkoutForm.address.value = ''; 
-    window.location = './shop.html'
+    checkoutForm.classList.add('hidden'); 
+    document.querySelector('.checkout-done').classList.remove('hidden');
     console.log(cart);
   })
   .catch((error)=>console.log(error))
