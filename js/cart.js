@@ -45,5 +45,5 @@ cart.forEach((currentProduct, index)=>{
   });
 }); 
 updateCartProductState(); 
-document.querySelector('.payment__checkout-btn').addEventListener('click', ()=> window.location = '../checkOut.html');
+document.querySelector('.payment__checkout-btn').addEventListener('click', ()=> window.location = './checkOut.html');
 

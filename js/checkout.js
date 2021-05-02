@@ -26,7 +26,11 @@ document.querySelector('.checkout__pay').addEventListener('click', (event) => {
   db.collection("orders").add(currentOrder)
   .then((docRef)=>{
     console.log('nice',docRef.id);
-    defaultCartState()
+    defaultCartState();
+    checkoutForm.name.value = ''; 
+    checkoutForm.id.value = ''; 
+    checkoutForm.address.value = ''; 
+    window.location = './shop.html'
     console.log(cart);
   })
   .catch((error)=>console.log(error))

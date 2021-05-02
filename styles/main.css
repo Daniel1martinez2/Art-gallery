@@ -2669,4 +2669,54 @@ body {
   width: 100%;
   border-radius: 3px;
 }
+
+.orders {
+  padding: 20px;
+}
+
+.orders__header a {
+  font-family: var(--second-font);
+  text-decoration: none;
+  color: var(--font-gray);
+}
+
+.orders__wrap {
+  margin-top: 30px;
+}
+
+.order {
+  margin-bottom: 15px;
+  background-color: var(--black-three);
+  border-radius: 5px;
+  padding: 10px;
+  font-family: var(--second-font);
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.order__main-info h1 {
+  font-size: 18px;
+  color: var(--main-white);
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.order__main-info h3 {
+  font-weight: 500;
+  color: var(--font-gray);
+  font-size: 15px;
+}
+
+.order__items {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: var(--main-yellow);
+  font-weight: 500;
+  font-size: 15px;
+}
 /*# sourceMappingURL=main.css.map */
