@@ -3,6 +3,7 @@ const subtotalElem = document.querySelector('.subtotal-number');
 const totalElem = document.querySelector('.total-number');
 const notProducts = document.querySelector('.cart__not-products');
 const payment = document.querySelector('.payment');
+setTransition(notProducts.querySelector('a'), './shop.html'); 
 document.querySelector('.cart__items-number').innerText = cart.length;
 const updateCartProductState = () => {
   subtotalElem.innerText = `$${subtotal}.00`; 

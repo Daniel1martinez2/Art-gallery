@@ -2756,4 +2756,27 @@ body {
   font-weight: 500;
   font-size: 15px;
 }
+
+.transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.transition__elem {
+  width: 100%;
+  height: 100%;
+  background-color: var(--main-yellow);
+  position: absolute;
+}
+
+.transition__elem:nth-child(2) {
+  background-color: var(--main-salmon);
+}
+
+.transition__elem:nth-child(3) {
+  background-color: var(--black-one);
+}
 /*# sourceMappingURL=main.css.map */

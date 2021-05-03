@@ -7,6 +7,7 @@ const productContainer = document.querySelector('.shop-products');
 const sortOptions = document.querySelector('.shop-settings__sort');
 const sortItems = document.querySelectorAll('.shop-settings__sort-item');
 const addProduct = document.querySelector('.shop-header__add-product');
+setTransition(document.querySelector('.shop-header__bag'),'./cart.html'); 
 const sortOptionsArray = [{
     checked: false,
     name: 'Popular'
@@ -36,7 +37,7 @@ const createProduct = (doc, id) => {
   product.classList.add('product');
   const starsArray = starsMath(doc.rating); 
   product.innerHTML = `
-  <a href="./productDetail.html?product=${id}">
+  <a class="product-detail-page" href="./productDetail.html?product=${id}">
     <img class="product__img"  src="${doc.images[0].url}" alt="">
   </a>
   <aside class="product__info">
@@ -75,6 +76,8 @@ const createProduct = (doc, id) => {
       }
     }
   }); 
+
+  setTransition(product.querySelector('.product-detail-page'), `./productDetail.html?product=${id}`);
   productContainer.appendChild(product);
 
 }
