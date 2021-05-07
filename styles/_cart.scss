@@ -99,7 +99,6 @@
     }
   }
 }
-
 .payment{
   position: fixed;
   bottom: 0;
@@ -164,19 +163,29 @@
     font-size: 15px;
   }
 }
-
 @media (min-width: 1024px){
+  .cart--full{
+    width: 70%;
+  }
+  .payment--full{
+    width: 30%;
+  }
+
+  .cart--empty{
+    width:100%;
+  }
+  .payment--empty{
+    width: 10%;
+  }
   .cart-wrapper{
     display: flex;
   }
   .cart{
-    width: 70%;
     &__products-container{
       max-height: 80vh;
     }
   }
   .payment{
-    width: 30%;
     position: relative;
     align-self: flex-end;
     padding-bottom: 5em;
@@ -186,7 +195,6 @@
     }
   }
 }
-
 .hidden{
   display: none;
 }

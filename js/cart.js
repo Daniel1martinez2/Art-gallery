@@ -3,6 +3,7 @@ const subtotalElem = document.querySelector('.subtotal-number');
 const totalElem = document.querySelector('.total-number');
 const notProducts = document.querySelector('.cart__not-products');
 const payment = document.querySelector('.payment');
+const cartWrapper = document.querySelector('.cart');
 setTransition(notProducts.querySelector('a'), './shop.html'); 
 document.querySelector('.cart__items-number').innerText = cart.length;
 const updateCartProductState = () => {
@@ -11,9 +12,14 @@ const updateCartProductState = () => {
   if(cart.length > 0){
     payment.classList.remove('hidden'); 
     notProducts.classList.add('hidden'); 
+    cartWrapper.classList.add('cart--full'); 
+    payment.classList.add('payment--full'); 
   }else{
     payment.classList.add('hidden'); 
     notProducts.classList.remove('hidden'); 
+    cartWrapper.classList.add('cart--empty'); 
+    payment.classList.add('payment--empty'); 
+
   }
 }
 let subtotal = 0; 

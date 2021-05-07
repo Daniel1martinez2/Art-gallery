@@ -2554,19 +2554,27 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .cart--full {
+    width: 70%;
+  }
+  .payment--full {
+    width: 30%;
+  }
+  .cart--empty {
+    width: 100%;
+  }
+  .payment--empty {
+    width: 10%;
+  }
   .cart-wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .cart {
-    width: 70%;
-  }
   .cart__products-container {
     max-height: 80vh;
   }
   .payment {
-    width: 30%;
     position: relative;
     -ms-flex-item-align: end;
         align-self: flex-end;
