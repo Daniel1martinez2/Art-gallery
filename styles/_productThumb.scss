@@ -6,14 +6,20 @@
   background-color: var(--second-white);
   overflow: hidden;
   border-radius: 5px;
+  box-shadow: 0px 7px 25px -2px rgba(111,111,111,0.81);
+  &:hover{
+      background-color: rgb(230, 222, 211);
+  }
   a{
     width: 50%;
     height: 100%;
+    
   }
   img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+  
   }
   &__info{
     width: 50%;

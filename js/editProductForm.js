@@ -11,7 +11,6 @@ const deleteProduct = document.querySelector('.edit-product__delete');
 if (params.get('product')) {
   deleteProduct.classList.remove('hidden');
   editing = true;
-
   //delete product stuff
   deleteProduct.addEventListener('click', () => {
     db.collection("products")
@@ -26,8 +25,7 @@ if (params.get('product')) {
         console.error("Error removing document: ", error);
         window.location = './shop.html';
       });
-  })
-
+  });
   db.collection('products')
     .doc(params.get('product'))
     .get()
@@ -106,7 +104,6 @@ form.addEventListener('submit', (event) => {
   console.log('<<<<<<<<<>>>>>>>>' + editing);
   if (editing) {
     console.log('editing');
-      
     db.collection('products').doc(params.get('product')).update({
       name: form.name.value,
       author: form.author.value,
@@ -162,7 +159,6 @@ form.addEventListener('submit', (event) => {
             downloadUrlPromises.push(snapshot.ref.getDownloadURL());
           });
           Promise.all(downloadUrlPromises).then((downloadURLs) => {
-
               const images = [];
               downloadURLs.forEach((url, index) => {
                 images.push({
@@ -190,7 +186,6 @@ form.addEventListener('submit', (event) => {
       console.error("Error adding document: ", error);
     });
 });
-
 const clearForm = () => {
   form.name.value = '';
   form.author.value = '';
