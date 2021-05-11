@@ -57,7 +57,6 @@ if (params.get('product')) {
         //   db.collection('products').doc(params.get('product')).update({
         //     //images: [{},{},{}]
         //   })
-
         // });
       });
     })
