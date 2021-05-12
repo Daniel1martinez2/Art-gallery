@@ -5,9 +5,22 @@ const prevContainer = document.querySelector('.edit-form__preview');
 const clearBtn = document.querySelector('.edit-form__clear');
 const loadAnimation = document.querySelector('.load-animation');
 const filesArray = [];
+const prevImg = [];
 const params = new URLSearchParams(location.search);
 let editing = false;
 const deleteProduct = document.querySelector('.edit-product__delete');
+const addImageThumb = (imgThumb) => {
+  imgThumb.classList.add('edit-form__img-prev');
+  imgThumb.innerHTML = `
+    <button type="button" class="delete-image-btn" >
+      <img src="./lib/svg/close-salmon.svg" alt="">
+    </button>
+  `;
+  prevContainer.appendChild(imgThumb);
+}
+const genericCatch = (error) => {
+  console.log('There was an error in the product upload');
+}
 if (params.get('product')) {
   deleteProduct.classList.remove('hidden');
   editing = true;
@@ -45,19 +58,13 @@ if (params.get('product')) {
       data.images.forEach((elem, index) => {
         const imgThumb = document.createElement('div');
         imgThumb.style.backgroundImage = `url(${elem.url})`;
-        imgThumb.classList.add('edit-form__img-prev');
-        imgThumb.innerHTML = `
-        <button type="button" class="delete-image-btn" >
-          <img src="./lib/svg/close-salmon.svg" alt="">
-        </button>
-      `;
-        prevContainer.appendChild(imgThumb);
-        filesArray.push(elem); 
-        // imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event) => {
-        //   db.collection('products').doc(params.get('product')).update({
-        //     //images: [{},{},{}]
-        //   })
-        // });
+        addImageThumb(imgThumb); 
+        prevImg.push(elem);
+        imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event) => {
+          prevContainer.removeChild(imgThumb);
+          prevImg.splice(prevImg.indexOf(elem), 1);
+          console.log(prevImg);
+        });
       });
     })
     .catch((error) => window.location = './shop.html');
@@ -74,13 +81,7 @@ form.file.addEventListener('change', () => {
   reader.readAsDataURL(file);
   //add current selected file to the array
   filesArray.push(file);
-  imgThumb.classList.add('edit-form__img-prev');
-  imgThumb.innerHTML = `
-    <button type="button" class="delete-image-btn" >
-      <img src="./lib/svg/close-salmon.svg" alt="">
-    </button>
-  `;
-  prevContainer.appendChild(imgThumb);
+  addImageThumb(imgThumb); 
   imgThumb.querySelector('.delete-image-btn').addEventListener('click', (event) => {
     prevContainer.removeChild(imgThumb);
     filesArray.splice(filesArray.indexOf(file), 1);
@@ -104,24 +105,25 @@ form.addEventListener('submit', (event) => {
   if (editing) {
     console.log('editing');
     db.collection('products').doc(params.get('product')).update({
-      name: form.name.value,
-      author: form.author.value,
-      year: parseInt(form.year.value),
-      price: parseInt(form.price.value),
-      country: form.country.value,
-      rating: parseFloat(form.rating.value),
-      technique: form.technique.value,
-      vanguard: form.vanguard.value,
-      description: form.description.value,
-      size: form.size.value,
-      //images: [],
+        name: form.name.value,
+        author: form.author.value,
+        year: parseInt(form.year.value),
+        price: parseInt(form.price.value),
+        country: form.country.value,
+        rating: parseFloat(form.rating.value),
+        technique: form.technique.value,
+        vanguard: form.vanguard.value,
+        description: form.description.value,
+        size: form.size.value,
+        //images: [],
       }).then(() => {
         //the last thing that happens
         loadAnimation.classList.add('hidden');
         console.log('editing has been done');
         console.log(filesArray);
+        addNewImage(params.get('product'),prevImg );
       })
-      .catch((error)=> console.log(error.message));
+      .catch((error) => console.log(error.message));
     return
   };
   const product = {
@@ -137,49 +139,11 @@ form.addEventListener('submit', (event) => {
     size: form.size.value,
     images: [],
   };
-  const genericCatch = (error) => {
-    console.log('There was an error in the product upload');
-  }
+
   db.collection("products").add(product)
     .then((docRef) => {
       //reference to all promises i will do, so then i can wait for all to finish
-      const uploadPromises = [];
-      const downloadUrlPromises = [];
-
-      filesArray.forEach((file) => {
-        let storageRef = firebase.storage().ref();
-        let fileRef = storageRef.child(`products/${docRef.id}/${file.name}`);
-        // Wait for upload image
-        uploadPromises.push(fileRef.put(file));
-      });
-      Promise.all(uploadPromises).then((snapshots) => {
-          snapshots.forEach((snapshot) => {
-            // Wait for image URL
-            downloadUrlPromises.push(snapshot.ref.getDownloadURL());
-          });
-          Promise.all(downloadUrlPromises).then((downloadURLs) => {
-              const images = [];
-              downloadURLs.forEach((url, index) => {
-                images.push({
-                  url: url,
-                  ref: snapshots[index].ref.fullPath
-                });
-              });
-              db.collection('products').doc(docRef.id).update({
-                  images: images
-                }).then(() => {
-                  //the last thing that happens
-                  loadAnimation.classList.add('hidden');
-                  clearForm();
-                  clearImages();
-                  console.log('upload has been done');
-                })
-                .catch(genericCatch);
-            })
-            .catch(genericCatch);
-        })
-        .catch(genericCatch);
-      console.log("Document added", docRef.id);
+      addNewImage(docRef.id,null);
     })
     .catch((error) => {
       console.error("Error adding document: ", error);
@@ -196,4 +160,50 @@ const clearForm = () => {
   form.vanguard.value = '';
   form.description.value = '';
   form.size.value = '';
+}
+//upload a new image -----------------------
+const addNewImage = (id,prevImg) => {
+  const uploadPromises = [];
+  const downloadUrlPromises = [];
+
+  filesArray.forEach((file) => {
+    let storageRef = firebase.storage().ref();
+    let fileRef = storageRef.child(`products/${id}/${file.name}`);
+    // Wait for upload image
+    uploadPromises.push(fileRef.put(file));
+  });
+  Promise.all(uploadPromises).then((snapshots) => {
+      snapshots.forEach((snapshot) => {
+        // Wait for image URL
+        downloadUrlPromises.push(snapshot.ref.getDownloadURL());
+      });
+      Promise.all(downloadUrlPromises).then((downloadURLs) => {
+          const images = prevImg? [...prevImg]:[];
+          console.log(images,'🔥🔥🔥🔥');
+          downloadURLs.forEach((url, index) => {
+            images.push({
+              url: url,
+              ref: snapshots[index].ref.fullPath
+            });
+          });
+          // add to my product
+          db.collection('products').doc(id).update({
+              images: images
+            }).then(() => {
+              //the last thing that happens
+              loadAnimation.classList.add('hidden');
+              if(!prevImg){
+                clearForm();
+                clearImages();
+              }
+              console.log('upload has been done');
+            })
+            .catch(genericCatch);
+        })
+        .catch(genericCatch);
+    })
+    .catch(genericCatch);
+    if(prevImg){
+      console.log("Document edited", id);
+    }else console.log("Document added", id);
 }
