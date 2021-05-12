@@ -10,12 +10,11 @@ cardsType.forEach((elem) => {
 
 document.querySelector('.checkout__pay').addEventListener('click', (event) => {
   event.preventDefault();
-
   let orderTotalPrice = 0;
   cart.forEach((currentProduct, index) => orderTotalPrice += currentProduct.price);
   orderTotalPrice += 10;
   const currentOrder = {
-    userUID: loggedUserUID,
+    userUID: loggedUser.uid, //loggedUser.uid,
     date: new Date(Date.now()),
     price: orderTotalPrice,
     products: cart.map(a => a.id),

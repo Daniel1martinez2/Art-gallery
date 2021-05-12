@@ -15,20 +15,18 @@ const db = firebase.firestore();
 const storage = firebase.storage(); 
 let dataUser = null; 
 firebase.auth().onAuthStateChanged((user)=>{
-  if(user){
-    let uid = user.uid; 
-    loggedUserUID = uid;
-    console.log(uid);
+  if(user){ 
+    loggedUserUID = user.uid;
+    console.log(loggedUserUID);
     db.collection("users")
-    .doc(uid)
+    .doc(loggedUserUID)
     .get()
     .then((doc)=>{
       dataUser = doc.data(); 
       loggedUser = dataUser;
-      loggedUser.uid = uid; 
+      loggedUser.uid = loggedUserUID; 
       userAuthChanged(true,dataUser); 
       console.log(doc.data());
-      console.log('Lorem ipsum dolor sit amet.');
       if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
     })
     .catch((error)=>console.log(error.message))
@@ -41,7 +39,6 @@ firebase.auth().onAuthStateChanged((user)=>{
     userAuthChanged(false,dataUser); 
   }
 }) 
-
 //cart stuff
 let cart = [];
 const cartBtnNumber = document.querySelectorAll('.cart-length');
