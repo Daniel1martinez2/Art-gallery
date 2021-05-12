@@ -207,3 +207,10 @@ const addNewImage = (id,prevImg) => {
       console.log("Document edited", id);
     }else console.log("Document added", id);
 }
+
+//prevent free editing 
+const checkProductFormAdmin = () => {
+  if(!loggedUser || !loggedUser.admin) {
+    location.href = '/shop.html';
+  }
+}

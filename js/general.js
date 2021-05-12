@@ -29,6 +29,7 @@ firebase.auth().onAuthStateChanged((user)=>{
       userAuthChanged(true,dataUser); 
       console.log(doc.data());
       console.log('Lorem ipsum dolor sit amet.');
+      if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
     })
     .catch((error)=>console.log(error.message))
   }else{
@@ -36,6 +37,7 @@ firebase.auth().onAuthStateChanged((user)=>{
     loggedUser = null; 
     localStorage.clear();
     cartBtnNumber.innerText = '0';
+    if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
     userAuthChanged(false,dataUser); 
   }
 }) 

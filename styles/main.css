@@ -1688,6 +1688,7 @@ body {
 .edit-product {
   width: 100%;
   position: fixed;
+  z-index: 21392183892173;
   background-color: var(--black-one);
   padding: 20px;
   font-family: var(--second-font);
