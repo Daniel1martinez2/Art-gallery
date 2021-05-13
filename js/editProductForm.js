@@ -118,10 +118,10 @@ form.addEventListener('submit', (event) => {
         //images: [],
       }).then(() => {
         //the last thing that happens
-        loadAnimation.classList.add('hidden');
         console.log('editing has been done');
         console.log(filesArray);
         addNewImage(params.get('product'),prevImg );
+        
       })
       .catch((error) => console.log(error.message));
     return
@@ -139,7 +139,6 @@ form.addEventListener('submit', (event) => {
     size: form.size.value,
     images: [],
   };
-
   db.collection("products").add(product)
     .then((docRef) => {
       //reference to all promises i will do, so then i can wait for all to finish
@@ -161,7 +160,7 @@ const clearForm = () => {
   form.description.value = '';
   form.size.value = '';
 }
-//upload a new image -----------------------
+//upload a new image
 const addNewImage = (id,prevImg) => {
   const uploadPromises = [];
   const downloadUrlPromises = [];
@@ -191,11 +190,11 @@ const addNewImage = (id,prevImg) => {
               images: images
             }).then(() => {
               //the last thing that happens
-              loadAnimation.classList.add('hidden');
               if(!prevImg){
                 clearForm();
                 clearImages();
               }
+              loadAnimation.classList.add('hidden');
               console.log('upload has been done');
             })
             .catch(genericCatch);

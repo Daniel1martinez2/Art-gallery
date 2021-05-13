@@ -10,21 +10,19 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 let loggedUser = null; 
-let loggedUserUID = null; 
 const db = firebase.firestore();
 const storage = firebase.storage(); 
 let dataUser = null; 
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){ 
-    loggedUserUID = user.uid;
-    console.log(loggedUserUID);
+    console.log(user.uid);
     db.collection("users")
-    .doc(loggedUserUID)
+    .doc(user.uid)
     .get()
     .then((doc)=>{
       dataUser = doc.data(); 
       loggedUser = dataUser;
-      loggedUser.uid = loggedUserUID; 
+      loggedUser.uid = user.uid; 
       userAuthChanged(true,dataUser); 
       console.log(doc.data());
       if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
