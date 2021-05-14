@@ -55,7 +55,7 @@ const createProduct = (doc, id) => {
       <h3 class="product__price">$ ${doc.price}</h3>
       <button class="product__pay-btn">
         <img src="./lib/svg/bag.svg" alt="">
-        add to cart
+        ${loggedUser?.admin ? 'edit product' :'add to cart'}
       </button>
     </div>
   </aside>`;
@@ -127,10 +127,12 @@ settingsToggle.addEventListener('click', () => {
 logOut.addEventListener('click', ()=>{
   firebase.auth().signOut()
   .then(()=>{
-    loggedUser = null;     
+    loggedUser = null;
     defaultCartState(); 
     cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
     console.log('session was closed');
+    dataUser=null; 
+    console.log(dataUser,'⚠️⚠️⚠️');     
   })
   .catch((error)=>console.log(error)); 
 });

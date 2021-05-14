@@ -73,13 +73,14 @@ loginModalBtn.addEventListener('click', (event)=>{
   registerModalBtn.classList.remove('modal__btn--active'); 
 }); 
 registerModalBtn.addEventListener('click', (event)=>{
+  event.preventDefault(); 
   if(registerModalBtn.classList.contains('modal__btn--active') && !loggedUser) {
     const info = userInfo();
     firebase.auth().createUserWithEmailAndPassword(info.email,info.password)
     .then((userCredential) => {
       clearForm(); 
       let user = userCredential.user;
-      console.log(user);
+      console.log(user,'🔥');
       db.collection('users').doc(user.uid).set({
         name: info.name,
         email: info.email,
@@ -90,7 +91,7 @@ registerModalBtn.addEventListener('click', (event)=>{
       console.log(error);
     });
   };
-  event.preventDefault(); 
+ 
   registerFields.forEach((elem)=>elem.classList.remove('hidden')); 
   modalBtnContainer.style.flexDirection = 'column-reverse'; 
   loginModalBtn.classList.remove('modal__btn--active'); 

@@ -15,11 +15,12 @@ const storage = firebase.storage();
 let dataUser = null; 
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){ 
-    console.log(user.uid);
+    console.log(user.uid,'🍔🍔🍔');
     db.collection("users")
     .doc(user.uid)
     .get()
     .then((doc)=>{
+      console.log(user.uid,'🎃');
       dataUser = doc.data(); 
       loggedUser = dataUser;
       loggedUser.uid = user.uid; 
