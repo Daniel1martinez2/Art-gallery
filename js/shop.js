@@ -131,8 +131,9 @@ logOut.addEventListener('click', ()=>{
     defaultCartState(); 
     cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
     console.log('session was closed');
-    dataUser=null; 
-    console.log(dataUser,'⚠️⚠️⚠️');     
+    // dataUser=null; 
+    // console.log(dataUser,'⚠️⚠️⚠️');   
+
   })
   .catch((error)=>console.log(error)); 
 });

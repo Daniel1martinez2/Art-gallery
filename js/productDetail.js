@@ -25,7 +25,7 @@ db.collection('products')
         <strong>${data.author}</strong>
         <h3>${data.country}, ${data.year}</h3>
       </div>
-      <img class="product-main__img-big" src="${data.images[0]?.url || '../lib/img/noImage.png'}" alt="">
+      <img class="product-main__img-big" src="${data.images[0]?.url || './lib/img/noImage.png'}" alt="">
       <div class="product-main__img-set">
         <div  class="product-main__img-small product-main__img-small--active"> </div>
         <div  class="product-main__img-small"></div>
@@ -58,9 +58,9 @@ db.collection('products')
     const thumbs = productWrapper.querySelectorAll('.product-main__img-small'); 
     const imgBig = productWrapper.querySelector('.product-main__img-big'); 
     thumbs.forEach((elem,i)=>{
-      elem.style.backgroundImage = `url(${data.images[i]?.url || '../lib/img/noImage.png'})`; 
+      elem.style.backgroundImage = `url(${data.images[i]?.url || './lib/img/noImage.png'})`; 
       elem.addEventListener('click', ()=>{
-        imgBig.setAttribute('src',data.images[i]?.url || '../lib/img/noImage.png' ); 
+        imgBig.setAttribute('src',data.images[i]?.url || './lib/img/noImage.png' ); 
         thumbs.forEach((element)=>element.classList.remove('product-main__img-small--active')); 
         elem.classList.add('product-main__img-small--active'); 
       }); 

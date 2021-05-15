@@ -12,7 +12,15 @@ firebase.initializeApp(firebaseConfig);
 let loggedUser = null; 
 const db = firebase.firestore();
 const storage = firebase.storage(); 
-let dataUser = null; 
+
+const setLoggedUser = (info, id) => {
+  loggedUser = info;
+  loggedUser.uid = id;
+  userAuthChanged(true,info);
+  if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
+  console.log('🥳🥳🥳', loggedUser);
+}
+
 firebase.auth().onAuthStateChanged((user)=>{
   if(user){ 
     console.log(user.uid,'🍔🍔🍔');
@@ -20,22 +28,18 @@ firebase.auth().onAuthStateChanged((user)=>{
     .doc(user.uid)
     .get()
     .then((doc)=>{
-      console.log(user.uid,'🎃');
-      dataUser = doc.data(); 
-      loggedUser = dataUser;
-      loggedUser.uid = user.uid; 
-      userAuthChanged(true,dataUser); 
-      console.log(doc.data());
-      if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
+      if(!loggedUser){
+        setLoggedUser(doc.data(), user.uid);
+        console.log(user.uid,'🎃', doc.data());
+      }
     })
     .catch((error)=>console.log(error.message))
   }else{
-    dataUser = null; 
     loggedUser = null; 
     localStorage.clear();
     cartBtnNumber.innerText = '0';
     if(typeof checkProductFormAdmin !== 'undefined') checkProductFormAdmin();
-    userAuthChanged(false,dataUser); 
+    userAuthChanged(false,null); 
   }
 }) 
 //cart stuff
@@ -49,7 +53,6 @@ if(cartFromLS) {
     cartBtnNumber.forEach(elem =>elem.innerText = cart.length );
   }
 } 
-
 const defaultCartState = ()=>{
   localStorage.clear(); 
   while (cart.length) {

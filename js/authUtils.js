@@ -1,6 +1,6 @@
 const userAuthChanged = (loggedIn, dataUser) => {
   if(loggedIn && dataUser){
-    loginDefault(); 
+    loginDefault(dataUser); 
     if(dataUser.admin){
       loginAdmin(); 
       console.log('admin');
@@ -11,7 +11,7 @@ const userAuthChanged = (loggedIn, dataUser) => {
 }
 
 
-const loginDefault = () => {
+const loginDefault = (dataUser) => {
   const currentModal = document.querySelector('.modal-bg'); 
   if(currentModal) currentModal.classList.remove('modal-active');
   const userName = document.querySelector('.shop-header__user-name'); 
