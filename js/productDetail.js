@@ -1,5 +1,13 @@
 const params = new URLSearchParams(location.search); 
 const id = params.get('product'); 
+const zoomWindow = document.querySelector('.zoom-window');
+let currentBigImage; 
+let imageData = {
+  x:0,
+  y: 0,
+  height:0 ,
+  width:0,
+}
 const productWrapper = document.createElement('main'); 
 productWrapper.classList.add('product-detail-wrapper'); 
 db.collection('products')
@@ -11,6 +19,7 @@ db.collection('products')
       location.href = './shop.html';
       return
     }
+    currentBigImage = data.images[0]?.url || './lib/img/noImage.png'; 
     const starsArray = starsMath(data.rating); 
     productWrapper.innerHTML = ` <main class="product-main">
     <header class="product-main__header">
@@ -60,13 +69,45 @@ db.collection('products')
     thumbs.forEach((elem,i)=>{
       elem.style.backgroundImage = `url(${data.images[i]?.url || './lib/img/noImage.png'})`; 
       elem.addEventListener('click', ()=>{
-        imgBig.setAttribute('src',data.images[i]?.url || './lib/img/noImage.png' ); 
+        currentBigImage = data.images[i]?.url || './lib/img/noImage.png';      
+        zoomWindow.style.backgroundImage = `url(${currentBigImage})`; 
+        imgBig.setAttribute('src', currentBigImage); 
         thumbs.forEach((element)=>element.classList.remove('product-main__img-small--active')); 
         elem.classList.add('product-main__img-small--active'); 
       }); 
     }); 
-    productWrapper.querySelector('.detail__purchase').addEventListener('click', ()=>{
+    imgBig.addEventListener('mousemove', (event)=>{
+      zoomWindow.classList.remove('hidden');
+        imageData = {
+        x: event.clientX - imgBig.offsetLeft,
+        y: event.clientY - imgBig.offsetTop,
+        height:imgBig.clientHeight ,
+        width:imgBig.clientWidth ,
+      }; 
+      const zoomWidth = `${Math.round((imageData.x /imageData.width)*100)}%`; 
+      const zoomHeight = `${Math.round((imageData.y /imageData.height)*100)}%`; 
+      zoomWindow.style.backgroundPosition = `${zoomWidth} ${zoomHeight}`; 
       
+    }); 
+    document.addEventListener('mousemove', (event) => {
+      zoomWindow.style.top = `${event.clientY-(zoomWindow.clientHeight/2)}px`; 
+      zoomWindow.style.left = `${event.clientX-(zoomWindow.clientWidth/2)}px`; 
+    });
+    document.body.addEventListener('mousemove',(event)=>{
+      //console.log(event.clientX, event.clientY);
+      if(!(
+        (event.clientY < imageData.height + imgBig.offsetTop && event.clientY > imgBig.offsetTop) 
+        &&
+        (event.clientX < imageData.width + imgBig.offsetLeft && event.clientX > imgBig.offsetLeft))
+      ){
+       zoomWindow.classList.add('hidden');
+      }
+      //console.log('aaa', event.clientY,imageData.height+imgBig.offsetTop );
+    }); 
+    //zoom stuff
+    zoomWindow.style.backgroundImage = `url(${currentBigImage})`; 
+
+    productWrapper.querySelector('.detail__purchase').addEventListener('click', ()=>{
       if(!loggedUser){
         authModal.classList.add('modal-active'); 
       }else{

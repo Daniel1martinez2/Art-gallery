@@ -38,7 +38,7 @@ const createProduct = (doc, id) => {
   const starsArray = starsMath(doc.rating); 
   product.innerHTML = `
   <a class="product-detail-page" href="./productDetail.html?product=${id}">
-    <img class="product__img"  src="${doc.images[0]?.url || '../lib/img/noImage.png'}" alt="">
+    <img class="product__img"  src="${doc.images[0]?.url || './lib/img/noImage.png'}" alt="">
   </a>
   <aside class="product__info">
     <div class="product__name-rate">

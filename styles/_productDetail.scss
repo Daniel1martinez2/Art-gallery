@@ -1,3 +1,14 @@
+.zoom-window{
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background-color: var(--black-one);
+  background-size: 200vmin;
+  background-position: 100% 100%;
+  top: 100px;
+  pointer-events: none;
+  z-index: 32423432;
+}
 .product-detail-wrapper{
   display: flex;
   flex-direction: column;
