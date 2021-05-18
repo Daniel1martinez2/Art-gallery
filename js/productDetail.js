@@ -87,23 +87,14 @@ db.collection('products')
       const zoomWidth = `${Math.round((imageData.x /imageData.width)*100)}%`; 
       const zoomHeight = `${Math.round((imageData.y /imageData.height)*100)}%`; 
       zoomWindow.style.backgroundPosition = `${zoomWidth} ${zoomHeight}`; 
-      
-    }); 
-    document.addEventListener('mousemove', (event) => {
       zoomWindow.style.top = `${event.clientY-(zoomWindow.clientHeight/2)}px`; 
       zoomWindow.style.left = `${event.clientX-(zoomWindow.clientWidth/2)}px`; 
-    });
-    document.body.addEventListener('mousemove',(event)=>{
-      //console.log(event.clientX, event.clientY);
-      if(!(
-        (event.clientY < imageData.height + imgBig.offsetTop && event.clientY > imgBig.offsetTop) 
-        &&
-        (event.clientX < imageData.width + imgBig.offsetLeft && event.clientX > imgBig.offsetLeft))
-      ){
-       zoomWindow.classList.add('hidden');
-      }
-      //console.log('aaa', event.clientY,imageData.height+imgBig.offsetTop );
+      
     }); 
+    //out of imageBig event
+    imgBig.addEventListener('mouseleave', ()=>{
+      zoomWindow.classList.add('hidden');
+    })
     //zoom stuff
     zoomWindow.style.backgroundImage = `url(${currentBigImage})`; 
 
